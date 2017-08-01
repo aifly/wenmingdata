@@ -1,0 +1,171 @@
+﻿@import "../../../assets/css/base.scss";
+
+html, body, div, p, ul, li, ol, dl, dt, dd, header, footer, video, h1, h2, h3, h4, canvas, section, figure {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+html, body {
+  height: 100%;
+}
+body{
+	  font-family: "Helvetica Neue", 'Helvetica', "Microsoft YaHei", '微软雅黑', arial, sans-serif;
+	  overflow-x:hidden;
+}
+img {
+  border: none;
+  vertical-align: middle;
+  width: 100%;
+  height: auto;
+}
+
+input, textarea {
+  outline: none;
+}
+
+.zmiti-index-main-ui{
+  
+  overflow: hidden;
+
+
+  .zmiti-index-title{
+    @include pos(r);
+  }
+  .zmiti-index-title-img1{
+    height:240px;
+    position: relative;
+    z-index:2;
+  }
+  .zmiti-index-title-text1{
+    background-color: #f5e7d6;
+    border-radius: 10px;
+    -webkit-border-radius:10px;
+    -ms-border-radius:10px;
+    font-size:24px;
+    line-height:1.8;
+    position: relative;
+    z-index: 1;
+    top:-75px;    
+    .zmiti-index-title-inner1{
+      padding:45px 25px 10px 25px;
+      div{
+        text-indent:2em;
+        padding:0 0 30px 0;
+        color:#3c3c3c;
+      }
+    }
+  }
+
+  .zmiti-read-count{
+    @include pos(a);
+    bottom: 75px;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    color:#fc1f58;
+    $size:100px;
+    width: $size;
+    left: 44%;
+    margin-left: -$size /2;
+  }
+
+  .zmiti-index-title-content{
+     width: 90%;
+     left: 5%;
+     height: 1080px;
+     @include pos(a);
+     bottom: 140px;
+     &>div{
+      margin-top: 20px;
+     }
+  }
+  .zmiti-index-title-navbar{
+    position: relative;
+    top:-40px;
+  }
+  .zmiti-index-nav-header{
+    color:#fff;
+    width: 160px;
+    text-align: center;
+    line-height: 50px;
+    height: 50px;
+    left: 50px;
+    border: 1px solid #fff;
+    @include br(10px);
+    top: 10px;
+    &:nth-of-type(2){
+      top: 60px;
+    }
+  }
+  .zmiti-index-nav-header:nth-of-type(1){
+    position: relative;
+    left:0;
+    margin-bottom:30px;
+  }
+
+  .zmiti-index-bm{
+     @include displayBox(horizontal);
+     &>div{
+        margin:  20px;
+     }
+  }
+
+  .zmiti-read-btn{
+    @include pos(r);
+    a{
+      display: block;
+      width: 100%;
+      height: 100%;
+      color:#000;
+    }
+    width: 196px;
+    height: 66px;
+    background: #ecc18c;
+    color:#000;
+   
+    line-height: 66px;
+    text-align: center;
+    font-size: 30px;
+    &:before,&:after{
+      content:'';
+      width: 0;
+      height: 0;
+      @include pos(a);
+      right:-1px;
+      bottom: 0;
+      border-bottom: 60px solid #381f06;
+      border-left: 30px solid transparent;
+    }
+    &:after{
+      content:'';
+      width: 0;
+      height: 0;
+      @include pos(a);
+      right:-1px;
+      top: -1px;
+      border-bottom: none;
+      border-top: 30px solid #574532;
+      border-left: 60px solid transparent; 
+    }
+
+  }
+
+  .zmiti-goto-search{
+    width: 160px;
+    height: 50px;
+    margin:100px auto;
+    @include br(10px);
+    line-height: 50px;
+    background: #999;
+    color:#fff;
+    text-align: center;
+  }  
+}

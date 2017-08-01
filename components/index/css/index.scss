@@ -1,0 +1,63 @@
+@import "../../../assets/css/base.scss";
+
+.zmiti-index-main-ui {
+	@include pos(a);
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+
+	&>img {
+		width: 100%;
+		@include pos(a);
+	}
+	&>header {
+		width: 100%;
+		height: 100px;
+		color: #fff;
+		font-size: 50px;
+		line-height: 100px;
+		@include pos(r);
+
+		.zmiti-index-date {
+			font-size: 14px;
+			@include pos(a);
+			right: 50px;
+			height: 100px;
+			line-height: 30px;
+			@include displayFlex();
+			top: 0;
+			text-align: right;
+
+			.zmiti-index-time {
+				@include pos(r);
+				font-size: 20px;
+
+				span {
+					@include pos(r);
+					top: -2px;
+					@include animation(clock .5s infinite alternate);
+				}
+				&:after {
+					content: '';
+					@include pos(a);
+					width: 100%;
+					height: 2px;
+					background: #02c5ac;
+					left: 0;
+					bottom: 0;
+				}
+			}
+		}
+	}
+}
+@-webkit-keyframes clock {
+	to {
+		opacity: 0;
+	}
+}
+@keyframes clock {
+	to {
+		opacity: 0;
+	}
+}

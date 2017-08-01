@@ -1,0 +1,158 @@
+@charset "UTF-8";
+/*.ant-btn:focus, .ant-btn:hover,.ant-input:focus, .ant-input:hover {
+    background-color: #fff;
+    border-color: #bf1616;
+    box-shadow: 0 0 0 2px rgba(191, 22, 22, 0.1);
+}*/
+.lt-full {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0; }
+
+.zmiti-text-overflow {
+  overflow: hidden;
+  white-space: nowrap;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis; }
+
+html, body, div, p, ul, li, ol, dl, dt, dd, header, footer, video, h1, h2, h3, h4, canvas, section, figure {
+  padding: 0;
+  margin: 0; }
+
+a {
+  text-decoration: none; }
+
+li {
+  list-style: none; }
+
+html, body {
+  height: 100%; }
+
+body {
+  font-family: "Helvetica Neue", 'Helvetica', "Microsoft YaHei", '微软雅黑', arial, sans-serif;
+  overflow-x: hidden; }
+
+img {
+  border: none;
+  vertical-align: middle;
+  width: 100%;
+  height: auto; }
+
+input, textarea {
+  outline: none; }
+
+.zmiti-index-main-ui {
+  overflow: hidden; }
+  .zmiti-index-main-ui .zmiti-index-title {
+    position: relative; }
+  .zmiti-index-main-ui .zmiti-index-title-img1 {
+    height: 240px;
+    position: relative;
+    z-index: 2; }
+  .zmiti-index-main-ui .zmiti-index-title-text1 {
+    background-color: #f5e7d6;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -ms-border-radius: 10px;
+    font-size: 24px;
+    line-height: 1.8;
+    position: relative;
+    z-index: 1;
+    top: -75px; }
+    .zmiti-index-main-ui .zmiti-index-title-text1 .zmiti-index-title-inner1 {
+      padding: 45px 25px 10px 25px; }
+      .zmiti-index-main-ui .zmiti-index-title-text1 .zmiti-index-title-inner1 div {
+        text-indent: 2em;
+        padding: 0 0 30px 0;
+        color: #3c3c3c; }
+  .zmiti-index-main-ui .zmiti-read-count {
+    position: absolute;
+    bottom: 75px;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    color: #fc1f58;
+    width: 100px;
+    left: 44%;
+    margin-left: -50px; }
+  .zmiti-index-main-ui .zmiti-index-title-content {
+    width: 90%;
+    left: 5%;
+    height: 1080px;
+    position: absolute;
+    bottom: 140px; }
+    .zmiti-index-main-ui .zmiti-index-title-content > div {
+      margin-top: 20px; }
+  .zmiti-index-main-ui .zmiti-index-title-navbar {
+    position: relative;
+    top: -40px; }
+  .zmiti-index-main-ui .zmiti-index-nav-header {
+    color: #fff;
+    width: 160px;
+    text-align: center;
+    line-height: 50px;
+    height: 50px;
+    left: 50px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    top: 10px; }
+    .zmiti-index-main-ui .zmiti-index-nav-header:nth-of-type(2) {
+      top: 60px; }
+  .zmiti-index-main-ui .zmiti-index-nav-header:nth-of-type(1) {
+    position: relative;
+    left: 0;
+    margin-bottom: 30px; }
+  .zmiti-index-main-ui .zmiti-index-bm {
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    -webkit-box-orient: horizontal; }
+    .zmiti-index-main-ui .zmiti-index-bm > div {
+      margin: 20px; }
+  .zmiti-index-main-ui .zmiti-read-btn {
+    position: relative;
+    width: 196px;
+    height: 66px;
+    background: #ecc18c;
+    color: #000;
+    line-height: 66px;
+    text-align: center;
+    font-size: 30px; }
+    .zmiti-index-main-ui .zmiti-read-btn a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: #000; }
+    .zmiti-index-main-ui .zmiti-read-btn:before, .zmiti-index-main-ui .zmiti-read-btn:after {
+      content: '';
+      width: 0;
+      height: 0;
+      position: absolute;
+      right: -1px;
+      bottom: 0;
+      border-bottom: 60px solid #381f06;
+      border-left: 30px solid transparent; }
+    .zmiti-index-main-ui .zmiti-read-btn:after {
+      content: '';
+      width: 0;
+      height: 0;
+      position: absolute;
+      right: -1px;
+      top: -1px;
+      border-bottom: none;
+      border-top: 30px solid #574532;
+      border-left: 60px solid transparent; }
+  .zmiti-index-main-ui .zmiti-goto-search {
+    width: 160px;
+    height: 50px;
+    margin: 100px auto;
+    border-radius: 10px;
+    line-height: 50px;
+    background: #999;
+    color: #fff;
+    text-align: center; }
+
+/*# sourceMappingURL=index.css.map */
