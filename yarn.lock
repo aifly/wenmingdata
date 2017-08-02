@@ -2473,7 +2473,7 @@ react-weui@^1.1.1:
     babel-runtime "^6.18.0"
     prop-types "^15.5.10"
 
-react@^15.4.1:
+react@^15.6.1:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/react/-/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"
   dependencies:

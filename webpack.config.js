@@ -3,7 +3,6 @@ var webpack = require('webpack');
 var config = {
     entry: {
         'index': "./index.jsx",
-        'index1': "./index1.jsx",
         //vendor: ['react','react-dom','iscroll','jquery']
     },
     output: {

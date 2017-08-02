@@ -3,7 +3,7 @@ import {PubCom} from '../public/pub.jsx';
 import './css/index.css';
 import  ZmitiStar from '../../assets/libs/stars';
 
-class ZmitiIndexApp extends Component {
+class ZmitiCanvasApp extends Component {
 	constructor(props) {
 		super(props);
 		this.state={
@@ -53,7 +53,8 @@ class ZmitiIndexApp extends Component {
 					y:Math.random()*this.viewH|0
 				});
 				star.timer =0;
-				star.iNow = Math.random()*70+40;
+				star.life = Math.random()*50+10;
+				star.iNow = Math.random()*220+10;
 				star.speed = 0;
 				arr.push(star);
 
@@ -70,10 +71,17 @@ class ZmitiIndexApp extends Component {
 			arr.map((star,i)=>{
 
 				star.timer += star.iNow;
-				if(star.timer>200){
+				if(star.timer>star.life){
 					star.timer=0;
-					star.speed+=1;
-					star.update(star.speed%7);
+					//star.life = Math.random()*50+10;
+					if(i%3===0){
+						star.speed+=1;
+						star.update(star.speed%7);	
+					}else{
+						star.update(4);	
+					}
+					
+					
 				}
 			})
 			window.requestAnimationFrame(render);
@@ -83,4 +91,4 @@ class ZmitiIndexApp extends Component {
 		
 	}
 }
-export default PubCom(ZmitiIndexApp);
+export default PubCom(ZmitiCanvasApp);
