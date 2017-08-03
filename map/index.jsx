@@ -251,6 +251,13 @@ export default class ZmitiMapApp extends Component {
                   color:'rgba(0,0,0,0)'
                 }
               },
+              splitLine:{
+                  show:true,
+                  lineStyle:{
+                    color:'#999',
+                    opacity:.3
+                  }
+              },
               
               data: [
                   {value:'06:00',
@@ -284,18 +291,38 @@ export default class ZmitiMapApp extends Component {
               ],
               axisPointer:{
                 show:true,
-                type:'shadow'
+                type:'line'
               }
           },
-          yAxis: {
+           yAxis: {
               type: 'value',
-              
+              show:true,
               axisLabel: {
                   formatter: '{value} ',
                   textStyle:{
                     color:"#fff"
                   },
 
+              },
+               axisTick:{
+                show:false,
+                lineStyle:{
+                   color:'#999',
+                  opacity:.3
+                }
+              },
+              axisLine:{
+                show:true,
+                lineStyle:{
+                   color:'#999',
+                  opacity:.3
+                }
+              },
+              splitLine :{
+                lineStyle:{
+                  color:'#999',
+                  opacity:.3
+                }
               }
           },
           series: [
@@ -303,7 +330,7 @@ export default class ZmitiMapApp extends Component {
 
                 itemStyle:{
                   normal:{
-                    color:'#0a9573'
+                     color:'rgba(0,0,0,0)'
                   }
                 },
 
@@ -315,7 +342,19 @@ export default class ZmitiMapApp extends Component {
 
                 areaStyle:{
                    normal:{
-                    color:"#0a9573",
+                    color:{
+                      type: 'linear',
+                        x: 0,
+                        y: 0,
+                        x2: 0,
+                        y2: 1,
+                        colorStops: [{
+                            offset: 0, color: 'rgba(86,183,206,.8)' // 0% 处的颜色
+                        }, {
+                            offset: 1, color: 'rgba(115,135,197,.9)' // 100% 处的颜色
+                        }],
+                        globalCoord: false // 缺省为 false
+                    },
                     opacity:.2
                   }
                 },
@@ -329,15 +368,10 @@ export default class ZmitiMapApp extends Component {
                 type:'line',
                 data:[81, 34, 55, 152, 62],
                 markPoint: {
-                    data: [
-                        {type: 'max', name: '最大值'},
-                        {type: 'min', name: '最小值'}
-                    ]
+                   
                 },
                 markLine: {
-                    data: [
-                        {type: 'average', name: '平均值'}
-                    ]
+                    
                 }
               }
             
@@ -347,6 +381,21 @@ export default class ZmitiMapApp extends Component {
   }
 
   clickConfig(){
+
+     var data = [];
+
+    for(var i = 0; i < 7;i++){
+      data.push({
+        value:this.getDateStr(i-6),
+        textStyle: {
+          fontSize: 12,
+          color: '#fff'
+        }
+      });
+    }
+
+    console.log(data);
+
     return {
           title: {
               text: '点击量趋势图',
@@ -369,61 +418,49 @@ export default class ZmitiMapApp extends Component {
                   color:'rgba(0,0,0,0)'
                 }
               },
+               splitLine:{
+                  show:true,
+                  lineStyle:{
+                     color:'#999',
+                      opacity:.3
+                  }
+              },
               
-              data: [
-                  {value:'周日',
-                   textStyle: {
-                        fontSize: 12,
-                        color: '#fff'
-                    }
-                  },
-                  {
-                  value:'周一',
-                   textStyle: {
-                        fontSize: 12,
-                        color: '#fff'
-                    }
-                },{value:'周二',
-                   textStyle: {
-                        fontSize: 12,
-                        color: '#fff'
-                    }
-                },{value:'周三',
-                   textStyle: {
-                        fontSize: 12,
-                        color: '#fff'
-                    }
-                },{value:'周四',
-                   textStyle: {
-                        fontSize: 12,
-                        color: '#fff'
-                    }
-                },{value:'周五',
-                   textStyle: {
-                        fontSize: 12,
-                        color: '#fff'
-                    }
-                },{value:'周六',
-                   textStyle: {
-                        fontSize: 12,
-                        color: '#fff'
-                    }
-                }
-              ],
+              data,
               axisPointer:{
                 show:true,
-                type:'shadow'
+                type:'line'
               }
           },
           yAxis: {
               type: 'value',
-              
+              show:true,
               axisLabel: {
                   formatter: '{value} ',
                   textStyle:{
                     color:"#fff"
                   },
 
+              },
+              axisTick:{
+                show:false,
+                lineStyle:{
+                   color:'#999',
+                   opacity:.3
+                }
+              },
+              axisLine:{
+                show:true,
+                lineStyle:{
+                   color:'#999',
+                  opacity:.3
+                }
+              },
+              splitLine :{
+                lineStyle:{
+                  color:'#999',
+                  opacity:.3
+                }
               }
           },
           series: [
@@ -431,7 +468,7 @@ export default class ZmitiMapApp extends Component {
 
                 itemStyle:{
                   normal:{
-                    color:'#0a9573'
+                    color:'rgba(0,0,0,0)'
                   }
                 },
 
@@ -449,25 +486,43 @@ export default class ZmitiMapApp extends Component {
                 },
 
 
+                showAllSymbol:true,
+
+
 
                 name:'点击量',
 
                 type:'line',
-                data:[11, 34, 15, 13, 62, 13, 10],
+                data:[12, 20,150, 16, 20, 20, 190],
                 markPoint: {
                     data: [
                         {type: 'max', name: '最大值'},
                         {type: 'min', name: '最小值'}
                     ]
                 },
+                markArea:{
+                  itemStyle:{
+                    
+                  }
+                },
+                markPoint:{
+                  symbol:'circle'
+                },
                 markLine: {
+                    show:false,
                     data: [
                         {type: 'average', name: '平均值'}
-                    ]
+                    ],
+                    lineStyle:{
+                      normal:{
+                        opacity:.5
+                      }
+                    }
                 }
               }
             
-          ]
+          ],
+
       };
 
   }
@@ -579,6 +634,18 @@ export default class ZmitiMapApp extends Component {
 
       return res;
   }
+
+
+   getDateStr(AddDayCount) { 
+      var dd = new Date(); 
+      dd.setDate(dd.getDate()+AddDayCount);//获取AddDayCount天后的日期
+      //var y = dd.getFullYear(); 
+      var m = dd.getMonth()+1;//获取当前月份的日期
+      m < 10 && (m = '0'+m);
+      var d = dd.getDate(); 
+      d < 10 && (d = '0'+d);
+      return d + '日'; 
+  } 
 }
 
 

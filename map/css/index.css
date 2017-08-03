@@ -123,18 +123,18 @@
                 -ms-flex: 1;
                     flex: 1; }
       .zmiti-map-container > aside:nth-of-type(2) .zmiti-hot-news-rank .zmiti-charts-C {
-        margin-top: 50px;
-        width: 100%;
+        margin-top: 150px;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
         display: -webkit-flex;
-        -ms-flex-flow: column;
-            flex-flow: column;
-        height: 550px; }
+        -ms-flex-flow: row;
+            flex-flow: row;
+        height: 300px; }
         .zmiti-map-container > aside:nth-of-type(2) .zmiti-hot-news-rank .zmiti-charts-C > aside {
           -webkit-box-flex: 1;
               -ms-flex: 1;
                   flex: 1;
           -webkit-flex: 1; }
+
 /*# sourceMappingURL=index.css.map */

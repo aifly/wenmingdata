@@ -103,10 +103,9 @@
           }
         }
         .zmiti-charts-C {
-          margin-top: 50px;
-          width: 100%;
-          @include displayFlex();
-          height: 550px;
+          margin-top: 150px;
+          @include displayFlex(row);
+          height: 300px;
 
           &>aside {
             flex: 1;
