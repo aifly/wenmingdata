@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	
+	<canvas id='canvas' width="800" height="500"></canvas>
+
+	<script>
+		window.onload = function(){
+			var canvas = document.getElementById('canvas');
+			var context = canvas.getContext('2d');
+
+			context.lineWidth=1;
+			context.beginPath();
+			context.arc(100,100,50,0,Math.PI*2,false)
+			context.closePath();
+			context.stroke();
+
+			context.strokeStyle = '#f90';
+			context.lineWidth= 4;;
+			context.beginPath();
+			context.arc(100,100,50,-Math.PI/2,Math.PI,false)
+			context.stroke();
+
+
+		}
+	</script>
+</body>
+</html>
