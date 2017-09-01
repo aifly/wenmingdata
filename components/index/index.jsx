@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
-import {PubCom} from '../public/pub.jsx';
+import React, {
+	Component
+} from 'react';
+import {
+	PubCom
+} from '../public/pub.jsx';
 import './css/index.css';
-import  ZmitiStar from '../../assets/libs/stars';
+import ZmitiStar from '../../assets/libs/stars';
 
 class ZmitiCanvasApp extends Component {
 	constructor(props) {
 		super(props);
-		this.state={
-			
+		this.state = {
+
 		};
 		this.viewW = document.documentElement.clientWidth;
 		this.viewH = document.documentElement.clientHeight;
@@ -23,20 +27,19 @@ class ZmitiCanvasApp extends Component {
 					{this.props.title}
 					{this.props.date}
 				</header>
-				<canvas width={this.viewW} height={this.viewH/3*2} ref='canvas'></canvas>
 			</div>
 		);
 	}
 
 
 	componentDidMount() {
-		setTimeout(()=>{
+		setTimeout(() => {
 			this.setState({
-				showimg:true
+				showimg: true
 			});
-		},2000);
+		}, 2000);
 
-		var canvas = this.refs['canvas'];
+		/*var canvas = this.refs['canvas'];
 
 		var context = canvas.getContext('2d');
 		var img = new Image();
@@ -87,8 +90,8 @@ class ZmitiCanvasApp extends Component {
 			window.requestAnimationFrame(render);
 		}.bind(this);
 
-		render();
-		
+		render();*/
+
 	}
 }
 export default PubCom(ZmitiCanvasApp);

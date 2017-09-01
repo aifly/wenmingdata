@@ -1,0 +1,34 @@
+@import "../../../assets/css/base.scss";
+
+@mixin borderShadow() {
+	background: #000;
+	box-shadow: 0 0 1px 1px rgba(14, 92, 95, .6);
+}
+.zmiti-niceperson-main-ui {
+	height: auto !important;
+	margin: 0 auto 1vh !important;
+	flex: 1;
+	-webkit-flex: 1;
+
+	aside {
+		@include pos(r);
+
+		&:after {
+			opacity: 0;
+		}
+		.zmiti-line-shadow {
+			width: 1px;
+			height: 8vh;
+			@include pos(a);
+			left: 0;
+			top: -2vh;
+			@include borderShadow();
+		}
+		img.zmiti-niceperson-item {
+			@include pos(a);
+			top: -1.8vh;
+			left: 0;
+			width: auto !important;
+		}
+	}
+}

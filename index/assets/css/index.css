@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*.ant-btn:focus, .ant-btn:hover,.ant-input:focus, .ant-input:hover {
     background-color: #fff;
     border-color: #bf1616;
@@ -32,7 +31,7 @@ html, body {
   height: 100%; }
 
 body {
-  font-family: "Helvetica Neue", 'Helvetica', "Microsoft YaHei", '微软雅黑', arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
   overflow-x: hidden; }
 
 img {
@@ -44,115 +43,343 @@ img {
 input, textarea {
   outline: none; }
 
-.zmiti-index-main-ui {
-  overflow: hidden; }
-  .zmiti-index-main-ui .zmiti-index-title {
-    position: relative; }
-  .zmiti-index-main-ui .zmiti-index-title-img1 {
-    height: 240px;
+.zmiti-page1-main-ui {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: -webkit-flex;
+  -ms-flex-flow: row;
+      flex-flow: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .zmiti-page1-main-ui > aside {
     position: relative;
-    z-index: 2; }
-  .zmiti-index-main-ui .zmiti-index-title-text1 {
-    background-color: #f5e7d6;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -ms-border-radius: 10px;
-    font-size: 24px;
-    line-height: 1.8;
-    position: relative;
-    z-index: 1;
-    top: -75px; }
-    .zmiti-index-main-ui .zmiti-index-title-text1 .zmiti-index-title-inner1 {
-      padding: 45px 25px 10px 25px; }
-      .zmiti-index-main-ui .zmiti-index-title-text1 .zmiti-index-title-inner1 div {
-        text-indent: 2em;
-        padding: 0 0 30px 0;
-        color: #3c3c3c; }
-  .zmiti-index-main-ui .zmiti-read-count {
-    position: absolute;
-    bottom: 75px;
-    font-size: 32px;
-    font-weight: bold;
-    text-align: center;
-    color: #fc1f58;
-    width: 100px;
-    left: 44%;
-    margin-left: -50px; }
-  .zmiti-index-main-ui .zmiti-index-title-content {
-    width: 90%;
-    left: 5%;
-    height: 1080px;
-    position: absolute;
-    bottom: 140px; }
-    .zmiti-index-main-ui .zmiti-index-title-content > div {
-      margin-top: 20px; }
-  .zmiti-index-main-ui .zmiti-index-title-navbar {
-    position: relative;
-    top: -40px; }
-  .zmiti-index-main-ui .zmiti-index-nav-header {
-    color: #fff;
-    width: 160px;
-    text-align: center;
-    line-height: 50px;
-    height: 50px;
-    left: 50px;
-    border: 1px solid #fff;
-    border-radius: 10px;
-    top: 10px; }
-    .zmiti-index-main-ui .zmiti-index-nav-header:nth-of-type(2) {
-      top: 60px; }
-  .zmiti-index-main-ui .zmiti-index-nav-header:nth-of-type(1) {
-    position: relative;
-    left: 0;
-    margin-bottom: 30px; }
-  .zmiti-index-main-ui .zmiti-index-bm {
-    display: -webkit-box;
-    -webkit-box-align: center;
-    -webkit-box-pack: center;
-    -webkit-box-orient: horizontal; }
-    .zmiti-index-main-ui .zmiti-index-bm > div {
-      margin: 20px; }
-  .zmiti-index-main-ui .zmiti-read-btn {
-    position: relative;
-    width: 196px;
-    height: 66px;
-    background: #ecc18c;
-    color: #000;
-    line-height: 66px;
-    text-align: center;
-    font-size: 30px; }
-    .zmiti-index-main-ui .zmiti-read-btn a {
-      display: block;
-      width: 100%;
-      height: 100%;
-      color: #000; }
-    .zmiti-index-main-ui .zmiti-read-btn:before, .zmiti-index-main-ui .zmiti-read-btn:after {
-      content: '';
-      width: 0;
-      height: 0;
-      position: absolute;
-      right: -1px;
-      bottom: 0;
-      border-bottom: 60px solid #381f06;
-      border-left: 30px solid transparent; }
-    .zmiti-index-main-ui .zmiti-read-btn:after {
-      content: '';
-      width: 0;
-      height: 0;
-      position: absolute;
-      right: -1px;
-      top: -1px;
-      border-bottom: none;
-      border-top: 30px solid #574532;
-      border-left: 60px solid transparent; }
-  .zmiti-index-main-ui .zmiti-goto-search {
-    width: 160px;
-    height: 50px;
-    margin: 100px auto;
-    border-radius: 10px;
-    line-height: 50px;
-    background: #999;
-    color: #fff;
-    text-align: center; }
+    z-index: 100;
+    height: 85%;
+    margin-top: 90px; }
+    .zmiti-page1-main-ui > aside:nth-of-type(1) {
+      -webkit-box-flex: 4;
+          -ms-flex: 4;
+              flex: 4;
+      -webkit-flex: 4; }
+      .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-C {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+        -ms-flex-flow: column;
+            flex-flow: column;
+        border: 1px solid #0e5c5f;
+        width: 90%;
+        margin: 5%;
+        height: 90%;
+        position: absolute;
+        border-radius: 5px; }
+      .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-header-C {
+        height: 20vh; }
+        .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-header-C > header {
+          width: 100%;
+          height: 6.5vh;
+          line-height: 6.7vh;
+          font-size: 1.2vw;
+          color: #00fff2;
+          padding-left: 20px;
+          box-sizing: border-box;
+          position: relative;
+          font-weight: bold; }
+          .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-header-C > header:before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            width: 4px;
+            background: #faf170;
+            height: 1.4vw;
+            top: 1.2vw; }
+          .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-header-C > header:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+            height: 2px;
+            background: #000;
+            box-shadow: 0 0 1px 1px rgba(14, 92, 95, 0.6); }
+        .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-header-C .zmiti-active-count {
+          width: 100%;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          display: -webkit-flex;
+          -ms-flex-flow: row;
+              flex-flow: row;
+          margin-top: 20px;
+          position: relative; }
+          .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-header-C .zmiti-active-count:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: #000;
+            box-shadow: 0 0 1px 1px rgba(14, 92, 95, 0.6);
+            left: 0;
+            bottom: -18px; }
+          .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-header-C .zmiti-active-count > aside {
+            -webkit-box-flex: 1;
+                -ms-flex: 1;
+                    flex: 1;
+            -webkit-flex: 1;
+            color: #00fff2;
+            text-align: center;
+            font-size: 2vw;
+            font-weight: bold; }
+            .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-header-C .zmiti-active-count > aside > div {
+              color: #fff;
+              font-size: 12px;
+              margin: 4px 0;
+              font-weight: normal; }
+            .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-header-C .zmiti-active-count > aside:nth-of-type(2) {
+              position: relative; }
+              .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-header-C .zmiti-active-count > aside:nth-of-type(2):before, .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-header-C .zmiti-active-count > aside:nth-of-type(2):after {
+                content: '';
+                position: absolute;
+                width: 1px;
+                height: 100%;
+                background: #000;
+                box-shadow: 0 0 1px 1px rgba(14, 92, 95, 0.6);
+                left: 0;
+                top: 0; }
+              .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-header-C .zmiti-active-count > aside:nth-of-type(2):after {
+                left: auto;
+                right: 0; }
+            .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-header-C .zmiti-active-count > aside:nth-of-type(1) {
+              color: #faf170; }
+      .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-waiting-user, .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-niceperson-main-ui {
+        color: #fff;
+        width: 90%;
+        margin: 2vh auto;
+        height: 190px;
+        border-radius: 5px; }
+        .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-waiting-user .zmiti-active-title, .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-niceperson-main-ui .zmiti-active-title {
+          width: 80%;
+          margin: 0 auto;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          display: -webkit-flex;
+          -ms-flex-flow: row;
+              flex-flow: row; }
+          .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-waiting-user .zmiti-active-title > aside:nth-of-type(1), .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-niceperson-main-ui .zmiti-active-title > aside:nth-of-type(1) {
+            -webkit-box-flex: 2;
+                -ms-flex: 2;
+                    flex: 2;
+            -webkit-flex: 2;
+            position: relative; }
+            .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-waiting-user .zmiti-active-title > aside:nth-of-type(1):after, .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-niceperson-main-ui .zmiti-active-title > aside:nth-of-type(1):after {
+              content: '';
+              position: absolute;
+              width: 1px;
+              height: 100%;
+              background: #000;
+              box-shadow: 0 0 1px 1px rgba(14, 92, 95, 0.6);
+              right: 0;
+              top: 0; }
+            .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-waiting-user .zmiti-active-title > aside:nth-of-type(1) > div:nth-of-type(1), .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-niceperson-main-ui .zmiti-active-title > aside:nth-of-type(1) > div:nth-of-type(1) {
+              font-weight: bold;
+              font-size: 1.4vw; }
+            .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-waiting-user .zmiti-active-title > aside:nth-of-type(1) > div:nth-of-type(2), .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-niceperson-main-ui .zmiti-active-title > aside:nth-of-type(1) > div:nth-of-type(2) {
+              font-size: 12px;
+              margin-top: 10px; }
+          .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-waiting-user .zmiti-active-title > aside:nth-of-type(2), .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-niceperson-main-ui .zmiti-active-title > aside:nth-of-type(2) {
+            -webkit-box-flex: 3;
+                -ms-flex: 3;
+                    flex: 3;
+            -webkit-flex: 3;
+            text-align: right; }
+            .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-waiting-user .zmiti-active-title > aside:nth-of-type(2) img, .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-niceperson-main-ui .zmiti-active-title > aside:nth-of-type(2) img {
+              width: 20px;
+              margin-top: -3px; }
+            .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-waiting-user .zmiti-active-title > aside:nth-of-type(2) div, .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-niceperson-main-ui .zmiti-active-title > aside:nth-of-type(2) div {
+              display: inline-block;
+              border-radius: 5px;
+              background: #8f1537;
+              padding: 10px 15px;
+              font-weight: bold;
+              font-size: 1.3vw; }
+      .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-takeuser {
+        width: 80%;
+        margin: 20px auto 0;
+        height: 50px;
+        background: -webkit-linear-gradient(rgba(255, 198, 0, 0.15), rgba(255, 198, 0, 0.04));
+        background: linear-gradient(rgba(255, 198, 0, 0.15), rgba(255, 198, 0, 0.04));
+        position: relative; }
+        .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-takeuser .zmiti-active-slider {
+          width: 100%;
+          height: 4px;
+          background: #ffc600; }
+          .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-takeuser .zmiti-active-slider .zmiti-active-slider-bar {
+            width: 44%;
+            background: #00fff2;
+            height: 4px;
+            position: absolute; }
+            .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-takeuser .zmiti-active-slider .zmiti-active-slider-bar:after {
+              position: absolute;
+              width: 10px;
+              height: 10px;
+              border-radius: 50%;
+              top: -3px;
+              background: inherit;
+              content: '';
+              right: 0; }
+        .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-takeuser .zmiti-active-waiting-user-count-C {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          display: -webkit-flex;
+          -ms-flex-flow: row;
+              flex-flow: row; }
+          .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-takeuser .zmiti-active-waiting-user-count-C > aside {
+            -webkit-box-flex: 1;
+                -ms-flex: 1;
+                    flex: 1;
+            -webkit-flex: 1;
+            height: 40px;
+            line-height: 40px;
+            box-sizing: border-box; }
+            .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-takeuser .zmiti-active-waiting-user-count-C > aside:nth-of-type(1) {
+              padding-left: 10px; }
+              .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-takeuser .zmiti-active-waiting-user-count-C > aside:nth-of-type(1) label {
+                color: #00fff2; }
+            .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-takeuser .zmiti-active-waiting-user-count-C > aside:nth-of-type(2) {
+              padding-right: 20px;
+              text-align: right; }
+              .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-takeuser .zmiti-active-waiting-user-count-C > aside:nth-of-type(2) label {
+                color: #ffc600; }
+              .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-takeuser .zmiti-active-waiting-user-count-C > aside:nth-of-type(2) span:before {
+                border-radius: 0;
+                background: #ffc600; }
+            .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-takeuser .zmiti-active-waiting-user-count-C > aside label {
+              font-size: 18px;
+              font-weight: bold;
+              background: #0a1319;
+              position: relative;
+              top: 2px;
+              padding: 2px 8px;
+              margin-left: 4px; }
+            .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-takeuser .zmiti-active-waiting-user-count-C > aside span {
+              font-size: 12px;
+              position: relative; }
+              .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-takeuser .zmiti-active-waiting-user-count-C > aside span:before {
+                content: '';
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: #00fff2;
+                position: absolute;
+                left: -8px;
+                top: 5px; }
+      .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-niceperson-list {
+        width: 100%;
+        height: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+        -ms-flex-flow: column;
+            flex-flow: column;
+        margin: 0 auto; }
+    .zmiti-page1-main-ui > aside:nth-of-type(2) {
+      -webkit-box-flex: 5;
+          -ms-flex: 5;
+              flex: 5;
+      -webkit-flex: 5;
+      color: #fff;
+      height: 85%; }
+      .zmiti-page1-main-ui > aside:nth-of-type(2) > div {
+        height: 90%;
+        margin-top: 4%; }
+      .zmiti-page1-main-ui > aside:nth-of-type(2) .zmiti-map {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        z-index: 10;
+        top: 0; }
+      .zmiti-page1-main-ui > aside:nth-of-type(2) .zmiti-all-pv {
+        font-size: 1.4vw;
+        font-weight: bold;
+        width: 100%;
+        height: 60px; }
+        .zmiti-page1-main-ui > aside:nth-of-type(2) .zmiti-all-pv span {
+          display: inline-block;
+          background: rgba(0, 0, 0, 0.3);
+          margin: 0 4px;
+          padding: 0 3px;
+          font-size: 1.7vw; }
+        .zmiti-page1-main-ui > aside:nth-of-type(2) .zmiti-all-pv label {
+          margin: 20px;
+          display: inline-block; }
+      .zmiti-page1-main-ui > aside:nth-of-type(2) .zmiti-pv-list li {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+        -ms-flex-flow: row;
+            flex-flow: row;
+        height: 30px;
+        line-height: 30px;
+        margin-top: 3px; }
+        .zmiti-page1-main-ui > aside:nth-of-type(2) .zmiti-pv-list li > aside {
+          font-size: 12px;
+          min-width: 100px;
+          text-align: center;
+          background: rgba(0, 254, 243, 0.2); }
+          .zmiti-page1-main-ui > aside:nth-of-type(2) .zmiti-pv-list li > aside:nth-of-type(2) {
+            font-size: 1.5vw;
+            padding: 0 10px;
+            background: -webkit-linear-gradient(left, rgba(0, 233, 255, 0.37), rgba(0, 233, 255, 0.04));
+            background: linear-gradient(to right, rgba(0, 233, 255, 0.37), rgba(0, 233, 255, 0.04)); }
+      .zmiti-page1-main-ui > aside:nth-of-type(2) .zmiti-tag {
+        width: 16vw;
+        height: 18vh;
+        position: absolute;
+        top: 14%;
+        left: 30%;
+        overflow: hidden;
+        font-size: 12px;
+        color: #333;
+        margin: 20px auto 0;
+        text-align: center; }
+        .zmiti-page1-main-ui > aside:nth-of-type(2) .zmiti-tag a {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          color: #fff;
+          font-family: Arial;
+          text-decoration: none;
+          margin: 0 10px 15px 0;
+          line-height: 18px;
+          text-align: center;
+          font-size: 12px;
+          padding: 1px 5px;
+          display: inline-block;
+          border-radius: 3px; }
+        .zmiti-page1-main-ui > aside:nth-of-type(2) .zmiti-tag a.zmiti-tag-1 {
+          background: #666;
+          color: #fff; }
+        .zmiti-page1-main-ui > aside:nth-of-type(2) .zmiti-tag a.zmiti-tag-2 {
+          background: #F16E50; }
+        .zmiti-page1-main-ui > aside:nth-of-type(2) .zmiti-tag a.zmiti-tag-5 {
+          background: #006633; }
+        .zmiti-page1-main-ui > aside:nth-of-type(2) .zmiti-tag a:hover {
+          background: #0099ff; }
 
 /*# sourceMappingURL=index.css.map */

@@ -8,27 +8,38 @@
 	<script>
 		document.addEventListener("touchmove",function(e){e.preventDefault();});
 	</script>
+	<style type="text/css">
+		input{
+			position: absolute;
+			bottom: 0;
+		}
+		#input1{
+			top: 400px;
+			opacity:0;
+			transition: .5s;
+			bottom: auto;
+			position: fixed;
+		}
+	</style>
 	
 </head>
 <body style="overflow: hidden;">
-	
 		<div id="fly-main-ui">
 		</div>
+
 		
 		<!-- 
 			<script src='http://localhost:4600/index.js'></script> 
 		-->
 
-		<script type="text/javascript">
-			
-		</script>
-
-		<script src='./assets/js/vendor.js'></script>
+		
 		
 		<script src='http://localhost:4003/index.js' onError='onError()'></script>
-
+		
 		<!-- <script src='http://res.wx.qq.com/open/js/jweixin-1.2.0.js'></script> -->
 		<!--
+
+		<script src='./assets/js/vendor.js'></script>
 		<script src='./assets/js/index.js'></script>
 		<script src='http://res.wx.qq.com/open/js/jweixin-1.2.0.js'></script>
 		 

@@ -4,21 +4,18 @@ html, body, div, p, ul, li, ol, dl, dt, dd, header, footer, video, h1, h2, h3, h
   padding: 0;
   margin: 0;
 }
-
 a {
   text-decoration: none;
 }
-
 li {
   list-style: none;
 }
-
 html, body {
   height: 100%;
 }
-body{
-	  font-family: "Helvetica Neue", 'Helvetica', "Microsoft YaHei", '微软雅黑', arial, sans-serif;
-	  overflow-x:hidden;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
 }
 img {
   border: none;
@@ -26,146 +23,384 @@ img {
   width: 100%;
   height: auto;
 }
-
 input, textarea {
   outline: none;
 }
+@mixin borderShadow() {
+  background: #000;
+  box-shadow: 0 0 1px 1px rgba(14, 92, 95, .6);
+}
+.zmiti-page1-main-ui {
+  height: 100%;
+  @include pos(a);
+  width: 100%;
+  left: 0;
+  top: 0;
+  $borderColor: #0e5c5f;
+  $color: #00fff2;
+  $userConntColor: #8f1537;
+  @include displayFlex(row);
+  justify-content: center;
+  align-items: center;
 
-.zmiti-index-main-ui{
-  
-  overflow: hidden;
-
-
-  .zmiti-index-title{
+  &>aside {
     @include pos(r);
-  }
-  .zmiti-index-title-img1{
-    height:240px;
-    position: relative;
-    z-index:2;
-  }
-  .zmiti-index-title-text1{
-    background-color: #f5e7d6;
-    border-radius: 10px;
-    -webkit-border-radius:10px;
-    -ms-border-radius:10px;
-    font-size:24px;
-    line-height:1.8;
-    position: relative;
-    z-index: 1;
-    top:-75px;    
-    .zmiti-index-title-inner1{
-      padding:45px 25px 10px 25px;
-      div{
-        text-indent:2em;
-        padding:0 0 30px 0;
-        color:#3c3c3c;
+    z-index: 100;
+    height: 85%;
+    margin-top: 90px;
+
+    &:nth-of-type(1) {
+      flex: 4;
+      -webkit-flex: 4;
+
+      .zmiti-active-C {
+        @include displayFlex();
+        border: 1px solid $borderColor;
+        width: 90%;
+        margin: 5%;
+        height: 90%;
+        @include pos(a);
+        @include br(5px);
+      }
+      .zmiti-active-header-C {
+        height: 20vh;
+
+        &>header {
+          width: 100%;
+          height: 6.5vh;
+          line-height: 6.7vh;
+          font-size: 1.2vw;
+          color: $color;
+          padding-left: 20px;
+          box-sizing: border-box;
+          @include pos(r);
+          font-weight: bold;
+
+          &:before {
+            content: '';
+            @include pos(a);
+            left: 5px;
+            width: 4px;
+            background: #faf170;
+            height: 1.4vw;
+            top: 1.2vw;
+          }
+          &:after {
+            content: "";
+            @include pos(a);
+            bottom: 0;
+            width: 100%;
+            left: 0;
+            height: 2px;
+            @include borderShadow();
+          }
+        }
+        .zmiti-active-count {
+          width: 100%;
+          @include displayFlex(row);
+          margin-top: 20px;
+          @include pos(r);
+
+          &:after {
+            content: '';
+            @include pos(a);
+            width: 100%;
+            height: 1px;
+            @include borderShadow();
+            left: 0;
+            bottom: -18px;
+          }
+          &>aside {
+            flex: 1;
+            -webkit-flex: 1;
+            color: $color;
+            text-align: center;
+            font-size: 2vw;
+            font-weight: bold;
+
+            &>div {
+              color: #fff;
+              font-size: 12px;
+              margin: 4px 0;
+              font-weight: normal;
+            }
+            &:nth-of-type(2) {
+              @include pos(r);
+
+              &:before, &:after {
+                content: '';
+                @include pos(a);
+                width: 1px;
+                height: 100%;
+                @include borderShadow();
+                left: 0;
+                top: 0;
+              }
+              &:after {
+                left: auto;
+                right: 0;
+              }
+            }
+            &:nth-of-type(1) {
+              color: #faf170;
+            }
+          }
+        }
+      }
+      .zmiti-active-waiting-user, .zmiti-niceperson-main-ui {
+        color: #fff;
+        width: 90%;
+        margin: 2vh auto;
+        height: 190px;
+        @include br(5px);
+
+        .zmiti-active-title {
+          width: 80%;
+          margin: 0 auto;
+          @include displayFlex(row);
+
+          &>aside {
+            &:nth-of-type(1) {
+              flex: 2;
+              -webkit-flex: 2;
+              @include pos(r);
+
+              &:after {
+                content: '';
+                @include pos(a);
+                width: 1px;
+                height: 100%;
+                @include borderShadow();
+                right: 0;
+                top: 0;
+              }
+              &>div:nth-of-type(1) {
+                font-weight: bold;
+                font-size: 1.4vw;
+              }
+              &>div:nth-of-type(2) {
+                font-size: 12px;
+                margin-top: 10px;
+              }
+            }
+            &:nth-of-type(2) {
+              flex: 3;
+              -webkit-flex: 3;
+              text-align: right;
+
+              img {
+                width: 20px;
+                margin-top: -3px;
+              }
+              div {
+                display: inline-block;
+                @include br(5px);
+                background: $userConntColor;
+                padding: 10px 15px;
+                font-weight: bold;
+                font-size: 1.3vw;
+              }
+            }
+          }
+        }
+      }
+      .zmiti-active-takeuser {
+        //slider
+        $color1:#ffc600;
+        width: 80%;
+        margin: 20px auto 0;
+        height: 50px;
+        background: linear-gradient(rgba(255, 198, 0, .15), rgba(255, 198, 0, .04));
+        @include pos(r);
+
+        .zmiti-active-slider {
+          width: 100%;
+          height: 4px;
+          background: $color1;
+
+          .zmiti-active-slider-bar {
+            width: 44%;
+            background: $color;
+            height: 4px;
+            @include pos(a);
+
+            &:after {
+              @include pos(a);
+              width: 10px;
+              height: 10px;
+              @include br();
+              top: -3px;
+              background: inherit;
+              content: '';
+              right: 0;
+            }
+          }
+        }
+        .zmiti-active-waiting-user-count-C {
+          //候选人数，总候选人数、
+          //all take part in
+          @include displayFlex(row);
+
+          &>aside {
+            flex: 1;
+            -webkit-flex: 1;
+            height: 40px;
+            line-height: 40px;
+            box-sizing: border-box;
+
+            &:nth-of-type(1) {
+              padding-left: 10px;
+
+              label {
+                color: $color;
+              }
+            }
+            &:nth-of-type(2) {
+              padding-right: 20px;
+              text-align: right;
+
+              label {
+                color: $color1;
+              }
+              span:before {
+                @include br(0);
+                background: $color1;
+              }
+            }
+            label {
+              font-size: 18px;
+              font-weight: bold;
+              background: #0a1319;
+              @include pos(r);
+              top: 2px;
+              padding: 2px 8px;
+              margin-left: 4px;
+            }
+            span {
+              font-size: 12px;
+              @include pos(r);
+
+              &:before {
+                content: '';
+                width: 6px;
+                height: 6px;
+                @include br();
+                background: $color;
+                @include pos(a);
+                left: -8px;
+                top: 5px;
+              }
+            }
+          }
+        }
+      }
+      .zmiti-niceperson-list {
+        width: 100%;
+        height: 100%;
+        @include displayFlex();
+        margin: 0 auto;
+      }
+    }
+    &:nth-of-type(2) {
+      flex: 5;
+      -webkit-flex: 5;
+      color: #fff;
+      height: 85%;
+
+      &>div {
+        height: 90%;
+        margin-top: 4%;
+      }
+      .zmiti-map {
+        width: 100%;
+        height: 100%;
+        @include pos(a);
+        left: 0;
+        z-index: 10;
+        top: 0;
+      }
+      .zmiti-pv-C {
+      }
+      .zmiti-all-pv {
+        font-size: 1.4vw;
+        font-weight: bold;
+        width: 100%;
+        height: 60px;
+
+        span {
+          display: inline-block;
+          background: rgba(0, 0, 0, .3);
+          margin: 0 4px;
+          padding: 0 3px;
+          font-size: 1.7vw;
+        }
+        label {
+          margin: 20px;
+          display: inline-block;
+        }
+      }
+      .zmiti-pv-list {
+        li {
+          @include displayFlex(row);
+          height: 30px;
+          line-height: 30px;
+          margin-top: 3px;
+
+          &>aside {
+            font-size: 12px;
+            min-width: 100px;
+            text-align: center;
+            background: rgba(0, 254, 243, .2);
+
+            &:nth-of-type(2) {
+              font-size: 1.5vw;
+              padding: 0 10px;
+              background: linear-gradient(to right, rgba(0, 233, 322, .37), rgba(0, 233, 322, .04));
+            }
+          }
+        }
+      }
+      .zmiti-tag {
+        width: 16vw;
+        height: 18vh;
+        @include pos(a);
+        top: 14%;
+        left: 30%;
+        overflow: hidden;
+        font-size: 12px;
+        color: #333;
+        margin: 20px auto 0;
+        text-align: center;
+
+        a {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          color: #fff;
+          font-family: Arial;
+          text-decoration: none;
+          margin: 0 10px 15px 0;
+          line-height: 18px;
+          text-align: center;
+          font-size: 12px;
+          padding: 1px 5px;
+          display: inline-block;
+          border-radius: 3px;
+        }
+        a.zmiti-tag-1 {
+          background: #666;
+          color: #fff;
+        }
+        a.zmiti-tag-2 {
+          background: #F16E50;
+        }
+        a.zmiti-tag-5 {
+          background: #006633;
+        }
+        a:hover {
+          background: #0099ff;
+        }
       }
     }
   }
-
-  .zmiti-read-count{
-    @include pos(a);
-    bottom: 75px;
-    font-size: 32px;
-    font-weight: bold;
-    text-align: center;
-    color:#fc1f58;
-    $size:100px;
-    width: $size;
-    left: 44%;
-    margin-left: -$size /2;
-  }
-
-  .zmiti-index-title-content{
-     width: 90%;
-     left: 5%;
-     height: 1080px;
-     @include pos(a);
-     bottom: 140px;
-     &>div{
-      margin-top: 20px;
-     }
-  }
-  .zmiti-index-title-navbar{
-    position: relative;
-    top:-40px;
-  }
-  .zmiti-index-nav-header{
-    color:#fff;
-    width: 160px;
-    text-align: center;
-    line-height: 50px;
-    height: 50px;
-    left: 50px;
-    border: 1px solid #fff;
-    @include br(10px);
-    top: 10px;
-    &:nth-of-type(2){
-      top: 60px;
-    }
-  }
-  .zmiti-index-nav-header:nth-of-type(1){
-    position: relative;
-    left:0;
-    margin-bottom:30px;
-  }
-
-  .zmiti-index-bm{
-     @include displayBox(horizontal);
-     &>div{
-        margin:  20px;
-     }
-  }
-
-  .zmiti-read-btn{
-    @include pos(r);
-    a{
-      display: block;
-      width: 100%;
-      height: 100%;
-      color:#000;
-    }
-    width: 196px;
-    height: 66px;
-    background: #ecc18c;
-    color:#000;
-   
-    line-height: 66px;
-    text-align: center;
-    font-size: 30px;
-    &:before,&:after{
-      content:'';
-      width: 0;
-      height: 0;
-      @include pos(a);
-      right:-1px;
-      bottom: 0;
-      border-bottom: 60px solid #381f06;
-      border-left: 30px solid transparent;
-    }
-    &:after{
-      content:'';
-      width: 0;
-      height: 0;
-      @include pos(a);
-      right:-1px;
-      top: -1px;
-      border-bottom: none;
-      border-top: 30px solid #574532;
-      border-left: 60px solid transparent; 
-    }
-
-  }
-
-  .zmiti-goto-search{
-    width: 160px;
-    height: 50px;
-    margin:100px auto;
-    @include br(10px);
-    line-height: 50px;
-    background: #999;
-    color:#fff;
-    text-align: center;
-  }  
 }
