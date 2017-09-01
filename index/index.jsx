@@ -244,6 +244,7 @@ class ZmitiIndexApp extends Component {
         }
       },
       visualMap: {
+        show:false,
         min: 0,
         max: 500,
         calculable: true,
