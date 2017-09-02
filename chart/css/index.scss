@@ -513,6 +513,7 @@ $color1:#ffc600;
         -webkit-flex: 1;
         margin-top: 10px;
         border: 1px solid $borderColor;
+        @include displayFlex();
 
         .title {
           height: 50px;
@@ -529,9 +530,17 @@ $color1:#ffc600;
           }
         }
         .zmiti-seo-info {
+          flex:1;
+          -webkit-flex:1;
           width: 94%;
           margin: 10px auto;
           background: linear-gradient(rgba(10, 111, 112, .3), rgba(10, 111, 112, .01));
+          .zmiti-include-count{
+            @include pos(a);
+            top: -25px;
+            left: 0;
+            @include transform(translate3d(-40%,0,0));
+          }
         }
       }
       color: #e4e4e4;
@@ -540,6 +549,7 @@ $color1:#ffc600;
 }
 #container {
   transform-style: preserve-3d;
+
 }
 .dot {
   height: 2px;
@@ -578,6 +588,7 @@ $color1:#ffc600;
   top: 4px;
   position: absolute;
   background: rgba(59, 210, 193, 1);
+
 }
 .zmiti-p:after {
   content: '';

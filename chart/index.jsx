@@ -112,15 +112,15 @@ class ZmitiChartApp extends Component {
       }, {
         name: '谷歌',
         count: 3423472,
-        height: 80
+        height: 50
       }, {
         name: '360',
         count: 6545435,
-        height: 40
+        height: 20
       }, {
         name: '搜狗',
         count: 2438334,
-        height: 67
+        height: 47
       }]
 
 
@@ -322,10 +322,11 @@ class ZmitiChartApp extends Component {
                   {this.state.seoList.map((seo,i)=>{
                     return <div ref={'point'+i} key={i} style={{visibility:'visible'}}>
                               <div className="zmiti-p"></div>
+                              <span className='zmiti-include-count'>{this.props.formatNumber(seo.count||0)}</span>
                           </div>
                   })}
                   
-                  <canvas ref='seo'></canvas>
+                  <canvas ref='seo' height='0'></canvas>
                 </div>
             </div>
           </aside>
@@ -407,13 +408,23 @@ class ZmitiChartApp extends Component {
 
     var line = new createjs.Shape();
     var shape = line.graphics.beginStroke('#e4e4e4');
+    var containers = [];
     this.state.seoList.map((seo, i) => {
-      var domElement = new createjs.DOMElement(this.refs['point' + i]);
-
-      domElement.x = width * (i * 2 + 1) / 8 - 10;
+      var dom = this.refs['point' + i];
+      var domElement = new createjs.DOMElement(dom);
+      var x = width * (i * 2 + 1) / 8 - 10;
+      domElement.x = x;
       domElement.y = seo.height;
       shape[i === 0 ? 'moveTo' : 'lineTo'](width * (i * 2 + 1) / 8, seo.height + 10);
+      var container = $(dom);
 
+      var text = new createjs.Text(seo.name,'10px Arial','#e4e4e4');
+
+      stage.addChild(text);
+      text.x = x;
+      text.y = height - 20;
+
+      containers.push(container);
       stage.addChild(domElement);
     })
 
@@ -434,11 +445,12 @@ class ZmitiChartApp extends Component {
     function Halo(obj, left, top) {
       var left = 10;
       var top = 10;
-
-      obj.append('<div class="dot" style="top:' + top + 'px;left:' + left + 'px;"></div>')
-      setTimeout(function() {
-        obj.find('.dot:first-of-type').remove();
-      }, 2500);
+      containers.forEach((obj,i)=>{
+          obj.append('<div class="dot" style="top:' + top + 'px;left:' + left + 'px;"></div>')
+          setTimeout(function() {
+            obj.find('.dot:first-of-type').remove();
+          }, 2500+(i*100));
+      })
     }
 
 
@@ -470,6 +482,7 @@ class ZmitiChartApp extends Component {
     //this.fillDate();
     this.initEcharts();
     this.initCreatejs();
+    
   }
 
 
@@ -842,7 +855,13 @@ class ZmitiChartApp extends Component {
       })
     }
     return {
-      color: ['#00fff2'],
+      color:  [new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+              offset: 0,
+              color: 'rgba(0,245,233,1)'
+            }, {
+              offset: 1,
+              color: 'rgba(0,245,233,.01)'
+            }])],
       tooltip: {
         trigger: 'axis',
         axisPointer: { // 坐标轴指示器，坐标轴触发有效
@@ -908,7 +927,13 @@ class ZmitiChartApp extends Component {
       })
     }
     return {
-      color: ['#f1e369'],
+      color: [new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+              offset: 0,
+              color: 'rgba(242,228,105,1)'
+            }, {
+              offset: 1,
+              color: 'rgba(242,228,105,.01)'
+            }])],
       tooltip: {
         trigger: 'axis',
         axisPointer: { // 坐标轴指示器，坐标轴触发有效
