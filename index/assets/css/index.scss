@@ -57,8 +57,8 @@ input, textarea {
         @include displayFlex();
         border: 1px solid $borderColor;
         width: 90%;
-        margin: 5%;
-        height: 90%;
+        margin: 0 5%;
+        height: 98%;
         @include pos(a);
         @include br(5px);
       }
@@ -309,7 +309,7 @@ input, textarea {
 
       &>div {
         height: 90%;
-        margin-top: 4%;
+        //margin-top: 4%;
       }
       .zmiti-map {
         width: 100%;

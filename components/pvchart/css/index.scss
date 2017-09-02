@@ -1,0 +1,23 @@
+@import "../../../assets/css/base.scss";
+
+@mixin borderShadow() {
+	background: #000;
+	box-shadow: 0 0 1px 1px rgba(14, 92, 95, .6);
+}
+.zmiti-pvchart-main-ui {
+	width: 50%;
+	box-sizing: border-box;
+	margin-top: 10px;
+
+	canvas {
+	}
+	@include displayFlex(row);
+	align-items: center;
+	font-size: 12px;
+
+	.zmiti-pvchart-info {
+		padding-top: 1.5vh;
+		box-sizing: border-box;
+		line-height: 20px;
+	}
+}

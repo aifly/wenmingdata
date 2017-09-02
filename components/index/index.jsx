@@ -21,7 +21,7 @@ class ZmitiCanvasApp extends Component {
 	render() {
 
 		return (
-			<div className='zmiti-index-main-ui' style={this.props.mainStyle}>
+			<div className={'zmiti-index-main-ui '+this.props.className} style={this.props.mainStyle}>
 				{this.state.showimg && <img src={this.props.shadowimg}/>}
 				<header style={this.props.headerStyle}>
 					{this.props.title}

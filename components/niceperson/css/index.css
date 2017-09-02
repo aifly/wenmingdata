@@ -30,15 +30,15 @@
       opacity: 0; }
     .zmiti-niceperson-main-ui aside .zmiti-line-shadow {
       width: 1px;
-      height: 8vh;
+      height: 12.5vh;
       position: absolute;
       left: 0;
-      top: -2vh;
+      top: -1.8vh;
       background: #000;
       box-shadow: 0 0 1px 1px rgba(14, 92, 95, 0.6); }
     .zmiti-niceperson-main-ui aside img.zmiti-niceperson-item {
       position: absolute;
-      top: -1.8vh;
+      top: -1.6vh;
       left: 0;
       width: auto !important; }
 

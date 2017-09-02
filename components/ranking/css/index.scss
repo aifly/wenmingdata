@@ -1,0 +1,57 @@
+@import "../../../assets/css/base.scss";
+
+@mixin borderShadow() {
+	background: #000;
+	box-shadow: 0 0 1px 1px rgba(14, 92, 95, .6);
+}
+$color: #00fff2;
+
+.zmiti-ranking-main-ui {
+	@include displayFlex(row);
+	width: 90%;
+	height: 40px;
+	margin: 0 auto 0;
+	line-height: 50px;
+
+	&>div {
+		font-size: 12px;
+
+		&:nth-of-type(1) {
+			width: 50px;
+			max-width: 100px;
+			min-width: 50px;
+		}
+		&:nth-of-type(2) {
+			flex: 1;
+			@include pos(r);
+
+			span {
+				@include pos(a);
+				z-index: 1;
+				right: 0;
+				top: -10px;
+				color: $color;
+			}
+			.zmiti-ranking-slider {
+				width: 100%;
+				@include pos(a);
+				height: 5px;
+				top: 24px;
+				background: rgba(150, 184, 197, .13);
+				@include br(5px);
+
+				.zmiti-ranking-slider-bar {
+					width: 40%;
+					top: 20px;
+					@include pos(a);
+					left: 0;
+					top: 0;
+					height: 100%;
+					@include br(5px);
+					background: linear-gradient(to right, #ff6044, #fdaf58);
+				}
+			}
+			-webkit-flex: 1;
+		}
+	}
+}
