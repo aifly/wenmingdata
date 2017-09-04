@@ -418,7 +418,7 @@ class ZmitiChartApp extends Component {
       shape[i === 0 ? 'moveTo' : 'lineTo'](width * (i * 2 + 1) / 8, seo.height + 10);
       var container = $(dom);
 
-      var text = new createjs.Text(seo.name,'10px Arial','#e4e4e4');
+      var text = new createjs.Text(seo.name, '10px Arial', '#e4e4e4');
 
       stage.addChild(text);
       text.x = x;
@@ -445,11 +445,11 @@ class ZmitiChartApp extends Component {
     function Halo(obj, left, top) {
       var left = 10;
       var top = 10;
-      containers.forEach((obj,i)=>{
-          obj.append('<div class="dot" style="top:' + top + 'px;left:' + left + 'px;"></div>')
-          setTimeout(function() {
-            obj.find('.dot:first-of-type').remove();
-          }, 2500+(i*100));
+      containers.forEach((obj, i) => {
+        obj.append('<div class="dot" style="top:' + top + 'px;left:' + left + 'px;"></div>')
+        setTimeout(function() {
+          obj.find('.dot:first-of-type').remove();
+        }, 2500 + (i * 100));
       })
     }
 
@@ -482,7 +482,7 @@ class ZmitiChartApp extends Component {
     //this.fillDate();
     this.initEcharts();
     this.initCreatejs();
-    
+
   }
 
 
@@ -642,6 +642,7 @@ class ZmitiChartApp extends Component {
 
   activeRankingConfig() {
     return {
+      color: ['#00fff2', '#ffe747', '#049ff2', '#ff5f44', '#fdaf58'],
       title: {
         show: false,
         text: '',
@@ -656,7 +657,7 @@ class ZmitiChartApp extends Component {
         show: false,
         orient: 'vertical',
         left: 'left',
-        data: ['身边好人', '身边文明事', '好人365', '文明中国', '身边好人1']
+        data: ['身边好人', '身边文明事', '好人365', '文明中国', '中国文明网']
       },
       series: [{
         name: '访问来源',
@@ -677,7 +678,7 @@ class ZmitiChartApp extends Component {
           name: '文明中国'
         }, {
           value: 435,
-          name: '身边好人1'
+          name: '中国文明网'
         }],
         itemStyle: {
           emphasis: {
@@ -688,6 +689,8 @@ class ZmitiChartApp extends Component {
         }
       }]
     };
+
+
 
   }
 
@@ -855,13 +858,13 @@ class ZmitiChartApp extends Component {
       })
     }
     return {
-      color:  [new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-              offset: 0,
-              color: 'rgba(0,245,233,1)'
-            }, {
-              offset: 1,
-              color: 'rgba(0,245,233,.01)'
-            }])],
+      color: [new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+        offset: 0,
+        color: 'rgba(0,245,233,1)'
+      }, {
+        offset: 1,
+        color: 'rgba(0,245,233,.01)'
+      }])],
       tooltip: {
         trigger: 'axis',
         axisPointer: { // 坐标轴指示器，坐标轴触发有效
@@ -928,12 +931,12 @@ class ZmitiChartApp extends Component {
     }
     return {
       color: [new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-              offset: 0,
-              color: 'rgba(242,228,105,1)'
-            }, {
-              offset: 1,
-              color: 'rgba(242,228,105,.01)'
-            }])],
+        offset: 0,
+        color: 'rgba(242,228,105,1)'
+      }, {
+        offset: 1,
+        color: 'rgba(242,228,105,.01)'
+      }])],
       tooltip: {
         trigger: 'axis',
         axisPointer: { // 坐标轴指示器，坐标轴触发有效
