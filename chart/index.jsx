@@ -28,30 +28,35 @@ class ZmitiChartApp extends Component {
     this.state = {
 
       hotnews: [{
-        name: '习近平等出席观看庆祝建军90周年文艺晚会',
+        name: '湖北省第一届全国文明校园候选学校公示--中国文明网·湖北-湖北文明网',
         company: '中国文明网',
-        pv: 2023,
-        channel: '中国文明网'
+        pv: 11170,
+        channel: '公示公告',
+        href: 'http://hub.wenming.cn/wmxx/gg/201708/t20170809_4376812.shtml'
       }, {
-        name: '第六届全国道德模范候选人公示 五类别 共322名',
+        name: '中国好人榜”候选人点赞评议开始---中国文明网',
         company: '中国文明网',
-        pv: 2023,
-        channel: '新闻所属频道'
+        pv: 3926,
+        channel: '身边好人_频道',
+        href: 'http://www.wenming.cn/sbhr_pd/tt/201707/t20170731_4363866.shtml'
       }, {
-        name: '中央文明办发布7月"中国好人榜" 102人上榜 名单',
+        name: '头条 -贵州文明网',
         company: '中国文明网',
-        pv: 2023,
-        channel: '新闻所属频道1'
+        pv: 3432,
+        channel: '头条',
+        href: 'http://gz.wenming.cn/toutiao/201708/t20170810_4378168.shtml?from=timeline&isappinstalled=0'
       }, {
-        name: '习近平等出席观看庆祝建军90周年文艺晚会',
+        name: '中央文明办发布8月“中国好人榜”---中国文明网',
         company: '中国文明网',
-        pv: 2023,
-        channel: '新闻所属频道'
+        pv: 2959,
+        channel: '身边好人_频道',
+        href: 'http://www.wenming.cn/sbhr_pd/tt/201708/t20170831_4406952.shtml'
       }, {
-        name: '习近平等出席观看庆祝建军90周年文艺晚会',
+        name: '禁区勇士”胡洪炜：“国家选中我 就要干到底”---中国文明网',
         company: '中国文明网',
-        pv: 2023,
-        channel: '新闻所属频道'
+        pv: 2689,
+        channel: '专题库',
+        href: 'http://www.wenming.cn/specials/sxdt/sixthmd/diliujie/jyfx2017/201708/t20170818_4390469.shtml'
       }],
       allHRCount: 223552258, //好人总数
       lastMonthRecordCount: 56556455, //上月推荐总数
@@ -59,6 +64,7 @@ class ZmitiChartApp extends Component {
       PVoutCountry: 28533354, //国外浏览量
       PVinPC: 449234375, //pc端浏览量
       PVinMobile: 56556455, //移动端浏览量
+      alexa: 57006,
       pvList: [{
         name: 'H5浏览量',
         pv: 85426582,
@@ -89,37 +95,37 @@ class ZmitiChartApp extends Component {
         bgcolor: 'rgba(252,133,2,.1)',
       }],
       editorRankingList: [{
-        editor: '唐编辑',
-        count: 568525743,
-        scale: .69
+        editor: '梁艳红',
+        count: 19989,
+        scale: .381
       }, {
-        editor: '李编辑',
-        count: 424324234,
-        scale: .69
+        editor: '郑刚',
+        count: 14625,
+        scale: .28
       }, {
-        editor: '高编辑',
-        count: 654645545,
-        scale: .9
+        editor: '何霄',
+        count: 12521,
+        scale: .239
       }, {
-        editor: '王编辑',
-        count: 734511423,
-        scale: .5
+        editor: '张智萍',
+        count: 10080,
+        scale: .192
       }],
       seoList: [{
         name: '百度',
-        count: 56753434,
+        count: 5310193,
         height: 30,
       }, {
         name: '谷歌',
-        count: 3423472,
+        count: 404000,
         height: 50
       }, {
         name: '360',
-        count: 6545435,
-        height: 20
+        count: 3450000,
+        height: 25
       }, {
         name: '搜狗',
-        count: 2438334,
+        count: 7988396,
         height: 47
       }]
 
@@ -208,7 +214,7 @@ class ZmitiChartApp extends Component {
                 <div className='zmiti-trend'>
                   <section>
                     <div className='title'>ALEXA</div>
-                    <div>258456 <span><img src='./assets/images/ar.png'/></span></div>
+                    <div>{this.state.alexa} <span><img src='./assets/images/ar.png'/></span></div>
                   </section>
                   <section>
                     <div>
@@ -708,7 +714,6 @@ class ZmitiChartApp extends Component {
       });
     }
 
-    console.log(data);
 
     return {
       title: {
@@ -723,15 +728,24 @@ class ZmitiChartApp extends Component {
       tooltip: {
         trigger: 'axis'
       },
+      grid: {
+        left: '3%',
+        right: '0%',
+        bottom: '5%',
+        width: 300,
+        containLabel: true
+      },
 
       xAxis: {
         type: 'category',
         boundaryGap: false,
+        nameGap: 40,
         axisLine: {
           lineStyle: {
             color: 'rgba(0,0,0,0)'
           }
         },
+
         minInterval: 21,
         splitLine: {
           show: true,
@@ -807,7 +821,7 @@ class ZmitiChartApp extends Component {
           name: '点击量',
 
           type: 'line',
-          data: [12, 20, 150, 16, 20, 20, 190],
+          data: [419889, 420008, 450025, 475235, 326541, 298741, 539873],
           markPoint: {
             data: [{
               type: 'max',

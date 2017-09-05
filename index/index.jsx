@@ -42,7 +42,7 @@ class ZmitiIndexApp extends Component {
         title: '中国好人榜',
         person: 13534534
       }],
-      allPV: 620125000, //总浏览量
+      allPV: 135525369, //总浏览量
       pvList: [{
         name: '总发稿量',
         count: 23423000,
