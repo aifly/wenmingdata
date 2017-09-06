@@ -16,7 +16,7 @@ class ZmitiPvchartApp extends Component {
 
 	render() {
 
-		this.draw();
+	//this.draw();
 		return (
 			<div className='zmiti-pvchart-main-ui'>
 				<canvas ref='canvas' width='70' height='70' style={{height:70}}></canvas>

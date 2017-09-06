@@ -88,8 +88,8 @@ class ZmitiChartApp extends Component {
         color: 'rgba(119,229,89,1)',
         bgcolor: 'rgba(119,229,89,.1)',
       }, {
-        name: 'APP用户量',
-        pv: 187920,
+        name: 'APP装机量',
+        pv: 1205694,
         img: './assets/images/app.png',
         scale: .66,
         color: 'rgba(252,133,2,1)',

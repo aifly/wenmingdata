@@ -26,63 +26,51 @@ class ZmitiIndexApp extends Component {
 
 
     this.state = {
-      currentActiveCount: 56333250,
-      currentWeekActiveCount: 2815664,
-      currentMonthActiveCount: 18389191,
-      allWaitingCount: 21204855, //中国好人榜右侧数据
-      candidateCount: 303, //总候选人数
+      currentActiveCount: 2,
+      currentWeekActiveCount: 2822114,
+      currentMonthActiveCount: 24026969,
+      allWaitingCount:  2815664, //中国好人榜右侧数据
+      candidateCount: 302, //总候选人数
       takePartCount: 2700586, //参与人数
       nicepersonList: [{
         title: '中国好医生好护士投票活动',
         person: 53519628,
         daterange: '2017/7/1--2017/8/31'
       }, {
-        title: '我推荐我评议身边好人活动(7月)',
+        title: '中国好人榜(8月)',
+        person: 18389191,
+        daterange: '2017/8/1--2017/8/31'
+      }, {
+        title: '中国好人榜(7月)',
         person: 28443227,
         daterange: '2017/7/1--2017/7/31'
-      }, {
-        title: '我推荐我评议身边好人活动(6月)',
-        person: 22508727,
-        daterange: '2017/6/1--2017/6/30'
       }],
       allPV: 131591629, //总浏览量
       pvList: [{
-        name: '总发稿量',
-        count: 247869,
-      }, {
-        name: '网民参与数',
-        count: 23423000,
+        name: '#好人365#总浏览量',
+        count: 1445968794,
       }],
       tags: [{
         href: 'javascript:void(0)',
-        name: '文明'
+        name: '中国文明网'
       }, {
         href: 'javascript:void(0)',
-        name: '好人好事'
+        name: '习近平7.26讲话'
       }, {
         href: 'javascript:void(0)',
-        name: '身边好人'
+        name: '十九大'
       }, {
         href: 'javascript:void(0)',
-        name: '身边文明事'
+        name: '法治中国'
+      }, {
+        href: 'javascript:void(0)',
+        name: '将改革进行到底'
       }, {
         href: 'javascript:void(0)',
         name: '好人365'
       }, {
         href: 'javascript:void(0)',
-        name: '好人365'
-      }, {
-        href: 'javascript:void(0)',
-        name: '身边文明事'
-      }, {
-        href: 'javascript:void(0)',
-        name: '文明'
-      }, {
-        href: 'javascript:void(0)',
-        name: '好人好事'
-      }, {
-        href: 'javascript:void(0)',
-        name: '文明'
+        name: '习近平'
       }]
 
     }
@@ -124,7 +112,7 @@ class ZmitiIndexApp extends Component {
                 <div className='zmiti-active-count'>
                     <aside>
                       {this.props.formatNumber(this.state.currentActiveCount)}
-                      <div>当前活动人数</div>
+                      <div>当前活动数</div>
                     </aside>
                     <aside>
                       {this.props.formatNumber(this.state.currentWeekActiveCount)}
@@ -140,7 +128,7 @@ class ZmitiIndexApp extends Component {
               <h1 style={{height:30}}></h1>
               <div className='zmiti-active-title'>
                 <aside>
-                  <div>身边好人活动(8月)</div>
+                  <div>中国好人榜(9月)</div>
                   <div>{this.state.daterange}</div>
                 </aside>
                 <aside>
@@ -153,7 +141,7 @@ class ZmitiIndexApp extends Component {
                 </div>
                 <div className='zmiti-active-waiting-user-count-C'>
                   <aside>
-                    <span>候选总人数</span>
+                    <span>候选人</span>
                       <label>{this.props.formatNumber(this.state.candidateCount||0)}</label>
                   </aside>
                   <aside>
@@ -176,7 +164,7 @@ class ZmitiIndexApp extends Component {
             <div className='zmiti-map' ref='map'></div>
              <div className='zmiti-pv-C'>
                 <div className='zmiti-all-pv' style={allPVStyl}>
-                    <label>总浏览量</label>
+                    <label>网站总浏览量</label>
                     {
                       this.props.formatNumber(this.state.allPV || 0).split('').map((item, i) => {
                         return <span key={i}>{item}</span>
@@ -229,7 +217,7 @@ class ZmitiIndexApp extends Component {
       tooltip: {
         trigger: 'item',
         formatter: function(params) {
-          return params.name + ' : ' + params.value[2];
+          return '';// params.name + ' : ' + params.value[2];
         }
       },
       legend: {
@@ -953,9 +941,8 @@ class ZmitiIndexApp extends Component {
     var year = D.getFullYear();
     var month = D.getMonth();
     var day = D.getDate();
-
     this.setState({
-      daterange: [year, 8, 1].join('/') + "--" + [year, 8, 31].join('/')
+      daterange: [year, 9, 1].join('/') + "--"// + [year, 8, 31].join('/')
     })
   }
 
@@ -975,8 +962,8 @@ class ZmitiIndexApp extends Component {
     var distr = true;
     var tspeed = 11;
     var size = 200;
-    var mouseX = 0;
-    var mouseY = 1;
+    var mouseX = 1;
+    var mouseY = 3;
     var howElliptical = 1;
     var aA = null;
     var oDiv = null;
@@ -1102,7 +1089,7 @@ class ZmitiIndexApp extends Component {
         mcList[i].cz = radius * Math.cos(phi);
 
         aA[i].style.left = mcList[i].cx + oDiv.offsetWidth / 2 - mcList[i].offsetWidth / 2 + 'px';
-        aA[i].style.top = mcList[i].cy + oDiv.offsetHeight / 10 - mcList[i].offsetHeight + 'px';
+        aA[i].style.top = mcList[i].cy + oDiv.offsetHeight / 5 - mcList[i].offsetHeight/2 + 'px';
       }
     }
 
