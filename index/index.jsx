@@ -26,29 +26,29 @@ class ZmitiIndexApp extends Component {
 
 
     this.state = {
-      currentActiveCount: 155,
-      currentWeekActiveCount: 565,
-      currentMonthActiveCount: 8543,
-      allWaitingCount: 145733000, //中国好人榜右侧数据
-      candidateCount: 143433400, //总候选人数
-      takePartCount: 1245300, //参与人数
+      currentActiveCount: 56333250,
+      currentWeekActiveCount: 2815664,
+      currentMonthActiveCount: 18389191,
+      allWaitingCount: 21204855, //中国好人榜右侧数据
+      candidateCount: 303, //总候选人数
+      takePartCount: 2700586, //参与人数
       nicepersonList: [{
-        title: '中国好人榜',
-        person: 13534534
+        title: '中国好医生好护士投票活动',
+        person: 53519628,
+        daterange: '2017/7/1--2017/8/31'
       }, {
-        title: '中国好人榜',
-        person: 13534534
+        title: '我推荐我评议身边好人活动(7月)',
+        person: 28443227,
+        daterange: '2017/7/1--2017/7/31'
       }, {
-        title: '中国好人榜',
-        person: 13534534
+        title: '我推荐我评议身边好人活动(6月)',
+        person: 22508727,
+        daterange: '2017/6/1--2017/6/30'
       }],
-      allPV: 135525369, //总浏览量
+      allPV: 131591629, //总浏览量
       pvList: [{
         name: '总发稿量',
-        count: 23423000,
-      }, {
-        name: '总活动场数',
-        count: 23423000,
+        count: 247869,
       }, {
         name: '网民参与数',
         count: 23423000,
@@ -77,9 +77,6 @@ class ZmitiIndexApp extends Component {
       }, {
         href: 'javascript:void(0)',
         name: '文明'
-      }, {
-        href: 'javascript:void(0)',
-        name: '身边好人'
       }, {
         href: 'javascript:void(0)',
         name: '好人好事'
@@ -126,15 +123,15 @@ class ZmitiIndexApp extends Component {
                 <header>活动</header>
                 <div className='zmiti-active-count'>
                     <aside>
-                      {this.state.currentActiveCount}
+                      {this.props.formatNumber(this.state.currentActiveCount)}
                       <div>当前活动人数</div>
                     </aside>
                     <aside>
-                      {this.state.currentWeekActiveCount}
+                      {this.props.formatNumber(this.state.currentWeekActiveCount)}
                       <div>近一周</div>
                     </aside>
                     <aside>
-                      {this.state.currentMonthActiveCount}
+                      {this.props.formatNumber(this.state.currentMonthActiveCount)}
                       <div>近一月</div>
                     </aside>
                 </div>
@@ -143,7 +140,7 @@ class ZmitiIndexApp extends Component {
               <h1 style={{height:30}}></h1>
               <div className='zmiti-active-title'>
                 <aside>
-                  <div>中国好人榜</div>
+                  <div>身边好人活动(8月)</div>
                   <div>{this.state.daterange}</div>
                 </aside>
                 <aside>
@@ -160,15 +157,16 @@ class ZmitiIndexApp extends Component {
                       <label>{this.props.formatNumber(this.state.candidateCount||0)}</label>
                   </aside>
                   <aside>
-                    <span>参与人数</span>
+                    <span>线索</span>
                     <label>{this.props.formatNumber(this.state.takePartCount||0)}</label>
                   </aside>
                 </div>
               </div>
             </div>
             <div className='zmiti-niceperson-list'>
-               {this.state.nicepersonList.map((item,i)=>{
-                  return <ZmitiNicePersonApp iNow={i} {...item} daterange={this.state.daterange} key={i}></ZmitiNicePersonApp>
+              {
+                this.state.nicepersonList.map((item, i) => {
+                  return <ZmitiNicePersonApp iNow={i} {...item} daterange={item.daterange} key={i}></ZmitiNicePersonApp>
                })}
             </div>
           </div>
@@ -957,7 +955,7 @@ class ZmitiIndexApp extends Component {
     var day = D.getDate();
 
     this.setState({
-      daterange: [year, month, day].join('/') + "--" + [year, month + 1, day].join('/')
+      daterange: [year, 8, 1].join('/') + "--" + [year, 8, 31].join('/')
     })
   }
 
@@ -996,7 +994,6 @@ class ZmitiIndexApp extends Component {
           this.style.color = '#fff';
           this.style.background = '#0099ff';
           this.style.padding = '5px 5px';
-          this.style.filter = "alpha(opacity=100)";
           this.style.opacity = 1;
         }
       })(oTag)
@@ -1104,7 +1101,7 @@ class ZmitiIndexApp extends Component {
         mcList[i].cy = radius * Math.sin(theta) * Math.sin(phi);
         mcList[i].cz = radius * Math.cos(phi);
 
-        aA[i].style.left = mcList[i].cx + oDiv.offsetWidth / 3 - mcList[i].offsetWidth / 2 + 'px';
+        aA[i].style.left = mcList[i].cx + oDiv.offsetWidth / 2 - mcList[i].offsetWidth / 2 + 'px';
         aA[i].style.top = mcList[i].cy + oDiv.offsetHeight / 10 - mcList[i].offsetHeight + 'px';
       }
     }
@@ -1125,7 +1122,7 @@ class ZmitiIndexApp extends Component {
             aAs.display = 'none';
           continue;
         }
-        aAs.left = mcList[i].cx + l - mcList[i].offsetWidth / 2 + 'px';
+        aAs.left = mcList[i].cx + l - mcList[i].offsetWidth / 2 + 10 + 'px';
         aAs.top = mcList[i].cy + t - mcList[i].offsetHeight / 2 + 'px';
         //aAs.fontSize = Math.ceil(12 * mcList[i].scale / 2) + 6 + 'px';
         //aAs.filter="progid:DXImageTransform.Microsoft.Alpha(opacity="+100*mcList[i].alpha+")";

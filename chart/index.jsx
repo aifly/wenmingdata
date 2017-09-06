@@ -58,37 +58,38 @@ class ZmitiChartApp extends Component {
         channel: '专题库',
         href: 'http://www.wenming.cn/specials/sxdt/sixthmd/diliujie/jyfx2017/201708/t20170818_4390469.shtml'
       }],
-      allHRCount: 223552258, //好人总数
-      lastMonthRecordCount: 56556455, //上月推荐总数
-      PVinCountry: 28533354, //国内浏览量
-      PVoutCountry: 28533354, //国外浏览量
-      PVinPC: 449234375, //pc端浏览量
-      PVinMobile: 56556455, //移动端浏览量
+      allListCount: 0,
+      allHRCount: 10740, //好人总数
+      lastMonthRecordCount: 2702546, //上月推荐总数
+      PVinCountry: 206380912, //国内浏览量
+      PVoutCountry: 814236, //国外浏览量
+      PVinPC: 65897072, //pc端浏览量
+      PVinMobile: 65694557, //移动端浏览量
       alexa: 57006,
       pvList: [{
-        name: 'H5浏览量',
-        pv: 85426582,
+        name: 'H5用户量',
+        pv: 33872,
         img: './assets/images/h5.png',
         scale: .77,
         color: 'rgba(70,205,236,1)',
         bgcolor: 'rgba(70,205,236,.1)',
       }, {
-        name: '微博浏览量',
-        pv: 85426582,
+        name: '微博用户量',
+        pv: 468225,
         img: './assets/images/weibo.png',
         scale: .84,
         color: 'rgba(255,16,95,1)',
         bgcolor: 'rgba(255,16,95,.1)',
       }, {
-        name: '微信浏览量',
-        pv: 85426582,
+        name: '微信用户量',
+        pv: 703414,
         img: './assets/images/weixin.png',
         scale: .77,
         color: 'rgba(119,229,89,1)',
         bgcolor: 'rgba(119,229,89,.1)',
       }, {
-        name: 'APP浏览量',
-        pv: 85426582,
+        name: 'APP用户量',
+        pv: 187920,
         img: './assets/images/app.png',
         scale: .66,
         color: 'rgba(252,133,2,1)',
@@ -254,7 +255,7 @@ class ZmitiChartApp extends Component {
                     </section>
                      <section className='zmiti-pv-list'>
                       {this.state.pvList.map((item,i)=>{
-                        return <ZmitiPvchartApp key={i} {...item}></ZmitiPvchartApp>
+                        return <ZmitiPvchartApp allListCount={this.state.allListCount} key={i} {...item}></ZmitiPvchartApp>
                       })}
                     </section>
                 </div>
@@ -488,7 +489,22 @@ class ZmitiChartApp extends Component {
     //this.fillDate();
     this.initEcharts();
     this.initCreatejs();
+    this.computScale();
 
+  }
+
+  computScale() {
+    var all = 0;
+
+    this.state.pvList.map((list, i) => {
+      all += list.pv
+    });
+    this.state.pvList.forEach((list, i) => {
+      list.scale = list.pv / all;
+
+    });
+
+    this.forceUpdate();
   }
 
 
@@ -663,28 +679,28 @@ class ZmitiChartApp extends Component {
         show: false,
         orient: 'vertical',
         left: 'left',
-        data: ['身边好人', '身边文明事', '好人365', '文明中国', '中国文明网']
+        data: ['四个一百', '好人榜8月', '好医生好护士', '好人榜7月', '好人榜6月']
       },
       series: [{
-        name: '访问来源',
+        name: '参与人数',
         type: 'pie',
         radius: '55%',
         center: ['50%', '60%'],
         data: [{
-          value: 335,
-          name: '身边好人'
+          value: 71103519,
+          name: '四个一百'
         }, {
-          value: 310,
-          name: '身边文明事'
+          value: 18389191,
+          name: '好人榜8月'
         }, {
-          value: 234,
-          name: '好人365'
+          value: 53519628,
+          name: '好医生好护士'
         }, {
-          value: 135,
-          name: '文明中国'
+          value: 28443227,
+          name: '好人榜7月'
         }, {
-          value: 435,
-          name: '中国文明网'
+          value: 22508727,
+          name: '好人榜6月'
         }],
         itemStyle: {
           emphasis: {
@@ -862,9 +878,10 @@ class ZmitiChartApp extends Component {
   siteConfig() {
 
     var data = [];
-    for (var i = 0; i < 4; i++) {
+    var arr = ['中国文明网', '时事报告', '党建网']
+    for (var i = 0; i < 3; i++) {
       data.push({
-        value: '文明网' + (i + 1),
+        value: arr[i],
         textStyle: {
           fontSize: 12,
           color: '#e4e4e4'
@@ -923,10 +940,10 @@ class ZmitiChartApp extends Component {
         }
       }],
       series: [{
-        name: '直接访问',
+        name: '发稿量',
         type: 'bar',
         barWidth: '60%',
-        data: [334, 390, 330, 220]
+        data: [254, 55, 93]
       }]
     };
 
@@ -934,9 +951,10 @@ class ZmitiChartApp extends Component {
 
   channelConfig() {
     var data = [];
-    for (var i = 0; i < 4; i++) {
+    var arr = ['身边好人', '好人365', '中宣党建']
+    for (var i = 0; i < 3; i++) {
       data.push({
-        value: '形势政' + (i + 1),
+        value: arr[i],
         textStyle: {
           fontSize: 12,
           color: '#e4e4e4'
@@ -995,10 +1013,10 @@ class ZmitiChartApp extends Component {
         }
       }],
       series: [{
-        name: '直接访问',
+        name: '发稿量',
         type: 'bar',
         barWidth: '60%',
-        data: [2234, 790, 330, 2230]
+        data: [18, 12, 31]
       }]
     };
   }

@@ -16,7 +16,7 @@ class ZmitiPvchartApp extends Component {
 
 	render() {
 
-
+		this.draw();
 		return (
 			<div className='zmiti-pvchart-main-ui'>
 				<canvas ref='canvas' width='70' height='70' style={{height:70}}></canvas>
@@ -31,7 +31,13 @@ class ZmitiPvchartApp extends Component {
 
 
 	componentDidMount() {
+		this.draw();
+	}
+	draw() {
 		var canvas = this.refs['canvas'];
+		if (!canvas) {
+			return;
+		}
 		var context = canvas.getContext('2d');
 		var x = canvas.width / 2,
 			y = canvas.height / 2,

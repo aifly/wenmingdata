@@ -184,8 +184,8 @@ input, textarea {
               }
             }
             &:nth-of-type(2) {
-              flex: 3;
-              -webkit-flex: 3;
+              flex: 2;
+              -webkit-flex: 2;
               text-align: right;
 
               img {
@@ -361,7 +361,7 @@ input, textarea {
         }
       }
       .zmiti-tag {
-        width: 16vw;
+        width: 18vw;
         height: 18vh;
         @include pos(a);
         top: 14%;

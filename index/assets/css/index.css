@@ -199,10 +199,10 @@ input, textarea {
               font-size: 12px;
               margin-top: 10px; }
           .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-waiting-user .zmiti-active-title > aside:nth-of-type(2), .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-niceperson-main-ui .zmiti-active-title > aside:nth-of-type(2) {
-            -webkit-box-flex: 3;
-                -ms-flex: 3;
-                    flex: 3;
-            -webkit-flex: 3;
+            -webkit-box-flex: 2;
+                -ms-flex: 2;
+                    flex: 2;
+            -webkit-flex: 2;
             text-align: right; }
             .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-active-waiting-user .zmiti-active-title > aside:nth-of-type(2) img, .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-niceperson-main-ui .zmiti-active-title > aside:nth-of-type(2) img {
               width: 20px;
@@ -347,7 +347,7 @@ input, textarea {
             background: -webkit-linear-gradient(left, rgba(0, 233, 255, 0.37), rgba(0, 233, 255, 0.04));
             background: linear-gradient(to right, rgba(0, 233, 255, 0.37), rgba(0, 233, 255, 0.04)); }
       .zmiti-page1-main-ui > aside:nth-of-type(2) .zmiti-tag {
-        width: 16vw;
+        width: 18vw;
         height: 18vh;
         position: absolute;
         top: 14%;

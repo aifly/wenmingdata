@@ -502,14 +502,18 @@ $color1:#ffc600;
                   color: $color;
                 }
                 &>div {
-                  flex: 2;
+                  flex: 3;
 
                   &:nth-of-type(1), &:nth-of-type(2) {
                     text-align: left;
                   }
                   &:nth-of-type(2) {
-                    flex: 3;
-                    -webkit-flex: 3;
+                    flex: 7;
+                    -webkit-flex: 7;
+                  }
+                  &:nth-of-type(3) {
+                    flex: 2;
+                    -webkit-flex: 2;
                   }
                   &:nth-of-type(1) {
                     text-indent: 2em;
