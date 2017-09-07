@@ -29,7 +29,7 @@ class ZmitiIndexApp extends Component {
       currentActiveCount: 2,
       currentWeekActiveCount: 2822114,
       currentMonthActiveCount: 24026969,
-      allWaitingCount:  2815664, //中国好人榜右侧数据
+      allWaitingCount: 2815664, //中国好人榜右侧数据
       candidateCount: 302, //总候选人数
       takePartCount: 2700586, //参与人数
       nicepersonList: [{
@@ -217,7 +217,7 @@ class ZmitiIndexApp extends Component {
       tooltip: {
         trigger: 'item',
         formatter: function(params) {
-          return '';// params.name + ' : ' + params.value[2];
+          return ''; // params.name + ' : ' + params.value[2];
         }
       },
       legend: {
@@ -942,7 +942,7 @@ class ZmitiIndexApp extends Component {
     var month = D.getMonth();
     var day = D.getDate();
     this.setState({
-      daterange: [year, 9, 1].join('/') + "--"// + [year, 8, 31].join('/')
+      daterange: [year, 9, 1].join('/') + "--" // + [year, 8, 31].join('/')
     })
   }
 
@@ -963,7 +963,7 @@ class ZmitiIndexApp extends Component {
     var tspeed = 11;
     var size = 200;
     var mouseX = 1;
-    var mouseY = 3;
+    var mouseY = 2;
     var howElliptical = 1;
     var aA = null;
     var oDiv = null;
@@ -1089,7 +1089,7 @@ class ZmitiIndexApp extends Component {
         mcList[i].cz = radius * Math.cos(phi);
 
         aA[i].style.left = mcList[i].cx + oDiv.offsetWidth / 2 - mcList[i].offsetWidth / 2 + 'px';
-        aA[i].style.top = mcList[i].cy + oDiv.offsetHeight / 5 - mcList[i].offsetHeight/2 + 'px';
+        aA[i].style.top = mcList[i].cy + oDiv.offsetHeight / 5 - mcList[i].offsetHeight / 2 + 'px';
       }
     }
 

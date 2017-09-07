@@ -490,8 +490,35 @@ class ZmitiChartApp extends Component {
     this.initEcharts();
     this.initCreatejs();
     this.computScale();
+    this.socket();
+
 
   }
+
+  socket() {
+    var socket = io('http://socket.zmiti.com:2120');
+    var s = this;
+    var socketEvent = function(msg) {
+      if (!msg) {
+        return;
+      }
+      msg = msg.replace(/&quot;/g, "\"");
+
+      var data = JSON.parse(msg);
+
+      s.setState({
+        alexa: data
+      })
+
+    }
+
+    socket.off('wenming-alexa');
+
+    socket.on('wenming-alexa', socketEvent);
+
+
+  }
+
 
   computScale() {
     var all = 0;
