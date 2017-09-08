@@ -506,8 +506,10 @@ class ZmitiChartApp extends Component {
 
       var data = JSON.parse(msg);
 
+      console.log(data.alexa);
+
       s.setState({
-        alexa: data
+        alexa: data.alexa
       })
 
     }
@@ -515,6 +517,22 @@ class ZmitiChartApp extends Component {
     socket.off('wenming-alexa');
 
     socket.on('wenming-alexa', socketEvent);
+
+
+    var baiIncludeFn = function(msg) {
+      if (!msg) {
+        return;
+      }
+      msg = msg.replace(/&quot;/g, "\"");
+      console.log(msg);
+      var data = JSON.parse(msg);
+
+      s.state.seoList[0].count = data.include;
+      s.forceUpdate();
+    }
+    socket.off('wenming-baidu-include');
+
+    socket.on('wenming-baidu-include', baiIncludeFn);
 
 
   }
