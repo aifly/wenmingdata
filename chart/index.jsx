@@ -28,17 +28,17 @@ class ZmitiChartApp extends Component {
     this.state = {
 
       hotnews: [{
-        name: '湖北省第一届全国文明校园候选学校公示--中国文明网·湖北-湖北文明网',
-        company: '中国文明网',
-        pv: 11170,
-        channel: '公示公告',
-        href: 'http://hub.wenming.cn/wmxx/gg/201708/t20170809_4376812.shtml'
-      }, {
         name: '中国好人榜”候选人点赞评议开始---中国文明网',
         company: '中国文明网',
         pv: 3926,
         channel: '身边好人_频道',
         href: 'http://www.wenming.cn/sbhr_pd/tt/201707/t20170731_4363866.shtml'
+      }, {
+        name: '湖北省第一届全国文明校园候选学校公示--中国文明网·湖北-湖北文明网',
+        company: '中国文明网',
+        pv: 11170,
+        channel: '公示公告',
+        href: 'http://hub.wenming.cn/wmxx/gg/201708/t20170809_4376812.shtml'
       }, {
         name: '头条 -贵州文明网',
         company: '中国文明网',
@@ -61,10 +61,10 @@ class ZmitiChartApp extends Component {
       allListCount: 0,
       allHRCount: 10740, //好人总数
       lastMonthRecordCount: 2702546, //上月推荐总数
-      PVinCountry: 206380912, //国内浏览量
-      PVoutCountry: 814236, //国外浏览量
-      PVinPC: 65897072, //pc端浏览量
-      PVinMobile: 65694557, //移动端浏览量
+      PVinCountry: 139327001, //国内浏览量
+      PVoutCountry: 596563, //国外浏览量
+      PVinPC: 65892023, //pc端浏览量
+      PVinMobile: 65699606, //移动端浏览量
       alexa: 57006,
       pvList: [{
         name: 'H5用户量',
@@ -396,9 +396,9 @@ class ZmitiChartApp extends Component {
 
 
     return;
-    var netCharts = echarts.init(this.refs['chart2']);
+    /* var netCharts = echarts.init(this.refs['chart2']);
 
-    netCharts.setOption(this.netConfig())
+     netCharts.setOption(this.netConfig())*/
 
 
   }
@@ -491,9 +491,28 @@ class ZmitiChartApp extends Component {
     this.initCreatejs();
     this.computScale();
     this.socket();
-
+    this.fillData();
 
   }
+
+  fillData() { //填充请求过来的数据
+
+    var {
+      request
+    } = this.props;
+    request(data => {
+
+      this.setState({
+        alexa: data.list[0].alexa,
+        allHRCount: data.list[0].niceperson365,
+        PVinCountry: data.list[0].pvincountry,
+        PVoutCountry: data.list[0].pvoutcountry,
+        PVinPC: data.list[0].pvinpc,
+        PVinMobile: data.list[0].pvinmobile
+      })
+    });
+  }
+
 
   socket() {
     var socket = io('http://socket.zmiti.com:2120');
@@ -504,9 +523,9 @@ class ZmitiChartApp extends Component {
       }
       msg = msg.replace(/&quot;/g, "\"");
 
+
       var data = JSON.parse(msg);
 
-      console.log(data.alexa);
 
       s.setState({
         alexa: data.alexa
@@ -767,7 +786,7 @@ class ZmitiChartApp extends Component {
 
     for (var i = 0; i < 7; i++) {
       data.push({
-        value: this.getDateStr(i - 6),
+        value: this.getDateStr(i - 7),
         textStyle: {
           fontSize: 12,
           color: '#e4e4e4'
@@ -882,7 +901,7 @@ class ZmitiChartApp extends Component {
           name: '点击量',
 
           type: 'line',
-          data: [419889, 420008, 450025, 475235, 326541, 298741, 539873],
+          data: [560241, 551586, 546852, 782425, 798082, 600485, 798522],
           markPoint: {
             data: [{
               type: 'max',

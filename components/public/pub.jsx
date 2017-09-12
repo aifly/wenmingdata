@@ -27,6 +27,15 @@ export let PubCom = ComponsedComponent => class extends Component {
 		return t.split("").reverse().join("");
 	}
 
+	request(fn) {
+		$.ajax({
+			url: window.baseUrl + '/wenming/getwenmingdata/',
+			type: 'post'
+		}).then((data) => {
+			fn && fn(data);
+		})
+	}
+
 
 
 	render() {
@@ -34,7 +43,8 @@ export let PubCom = ComponsedComponent => class extends Component {
 
 		let methods = {
 
-			formatNumber: this.formatNumber
+			formatNumber: this.formatNumber,
+			request: this.request
 
 			//fillFeilds:this.fillFeilds
 		}

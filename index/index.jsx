@@ -45,7 +45,7 @@ class ZmitiIndexApp extends Component {
         person: 28443227,
         daterange: '2017/7/1--2017/7/31'
       }],
-      allPV: 131591629, //总浏览量
+      allPV: 139923564, //总浏览量
       pvList: [{
         name: '#好人365#总浏览量',
         count: 1445968794,
@@ -947,7 +947,7 @@ class ZmitiIndexApp extends Component {
   }
 
   tagMove() {
-    var radius = 90;
+    var radius = 80;
     var sa = 0,
       ca = 0,
       sb = 0,
@@ -961,9 +961,9 @@ class ZmitiIndexApp extends Component {
     var lastb = 1;
     var distr = true;
     var tspeed = 11;
-    var size = 200;
-    var mouseX = 1;
-    var mouseY = 2;
+    var size = 100;
+    var mouseX = .4;
+    var mouseY = 1;
     var howElliptical = 1;
     var aA = null;
     var oDiv = null;

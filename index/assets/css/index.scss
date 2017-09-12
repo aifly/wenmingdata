@@ -4,32 +4,40 @@ html, body, div, p, ul, li, ol, dl, dt, dd, header, footer, video, h1, h2, h3, h
   padding: 0;
   margin: 0;
 }
+
 a {
   text-decoration: none;
 }
+
 li {
   list-style: none;
 }
+
 html, body {
   height: 100%;
 }
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif;
   overflow-x: hidden;
 }
+
 img {
   border: none;
   vertical-align: middle;
   width: 100%;
   height: auto;
 }
+
 input, textarea {
   outline: none;
 }
+
 @mixin borderShadow() {
   background: #000;
   box-shadow: 0 0 1px 1px rgba(14, 92, 95, .6);
 }
+
 .zmiti-page1-main-ui {
   height: 100%;
   @include pos(a);
@@ -62,6 +70,7 @@ input, textarea {
         @include pos(a);
         @include br(5px);
       }
+
       .zmiti-active-header-C {
         height: 20vh;
 
@@ -85,6 +94,7 @@ input, textarea {
             height: 1.4vw;
             top: 1.2vw;
           }
+
           &:after {
             content: "";
             @include pos(a);
@@ -94,7 +104,9 @@ input, textarea {
             height: 2px;
             @include borderShadow();
           }
+
         }
+
         .zmiti-active-count {
           width: 100%;
           @include displayFlex(row);
@@ -110,6 +122,7 @@ input, textarea {
             left: 0;
             bottom: -18px;
           }
+
           &>aside {
             flex: 1;
             -webkit-flex: 1;
@@ -124,6 +137,7 @@ input, textarea {
               margin: 4px 0;
               font-weight: normal;
             }
+
             &:nth-of-type(2) {
               @include pos(r);
 
@@ -136,17 +150,24 @@ input, textarea {
                 left: 0;
                 top: 0;
               }
+
               &:after {
                 left: auto;
                 right: 0;
               }
+
             }
+
             &:nth-of-type(1) {
               color: #faf170;
             }
+
           }
+
         }
+
       }
+
       .zmiti-active-waiting-user, .zmiti-niceperson-main-ui {
         color: #fff;
         width: 90%;
@@ -174,15 +195,19 @@ input, textarea {
                 right: 0;
                 top: 0;
               }
+
               &>div:nth-of-type(1) {
                 font-weight: bold;
                 font-size: 1.4vw;
               }
+
               &>div:nth-of-type(2) {
                 font-size: 12px;
                 margin-top: 10px;
               }
+
             }
+
             &:nth-of-type(2) {
               flex: 2;
               -webkit-flex: 2;
@@ -192,6 +217,7 @@ input, textarea {
                 width: 20px;
                 margin-top: -3px;
               }
+
               div {
                 display: inline-block;
                 @include br(5px);
@@ -200,10 +226,15 @@ input, textarea {
                 font-weight: bold;
                 font-size: 1.3vw;
               }
+
             }
+
           }
+
         }
+
       }
+
       .zmiti-active-takeuser {
         //slider
         $color1:#ffc600;
@@ -234,8 +265,11 @@ input, textarea {
               content: '';
               right: 0;
             }
+
           }
+
         }
+
         .zmiti-active-waiting-user-count-C {
           //候选人数，总候选人数、
           //all take part in
@@ -254,7 +288,9 @@ input, textarea {
               label {
                 color: $color;
               }
+
             }
+
             &:nth-of-type(2) {
               padding-right: 20px;
               text-align: right;
@@ -262,11 +298,14 @@ input, textarea {
               label {
                 color: $color1;
               }
+
               span:before {
                 @include br(0);
                 background: $color1;
               }
+
             }
+
             label {
               font-size: 18px;
               font-weight: bold;
@@ -276,6 +315,7 @@ input, textarea {
               padding: 2px 8px;
               margin-left: 4px;
             }
+
             span {
               font-size: 12px;
               @include pos(r);
@@ -290,17 +330,24 @@ input, textarea {
                 left: -8px;
                 top: 5px;
               }
+
             }
+
           }
+
         }
+
       }
+
       .zmiti-niceperson-list {
         width: 100%;
         height: 100%;
         @include displayFlex();
         margin: 0 auto;
       }
+
     }
+
     &:nth-of-type(2) {
       flex: 5;
       -webkit-flex: 5;
@@ -311,6 +358,7 @@ input, textarea {
         height: 90%;
         //margin-top: 4%;
       }
+
       .zmiti-map {
         width: 100%;
         height: 100%;
@@ -319,8 +367,10 @@ input, textarea {
         z-index: 10;
         top: 0;
       }
+
       .zmiti-pv-C {
       }
+
       .zmiti-all-pv {
         font-size: 1.2vw;
         font-weight: bold;
@@ -334,11 +384,14 @@ input, textarea {
           padding: 0 3px;
           font-size: 1.7vw;
         }
+
         label {
           margin: 20px 4px;
           display: inline-block;
         }
+
       }
+
       .zmiti-pv-list {
         li {
           @include displayFlex(row);
@@ -357,15 +410,19 @@ input, textarea {
               padding: 0 10px;
               background: linear-gradient(to right, rgba(0, 233, 322, .37), rgba(0, 233, 322, .04));
             }
+
           }
+
         }
+
       }
+
       .zmiti-tag {
-        width: 18vw;
+        width: 22vw;
         height: 18vh;
         @include pos(a);
         top: 14%;
-        left: 30%;
+        left: 22%;
         overflow: hidden;
         font-size: 12px;
         color: #333;
@@ -387,20 +444,28 @@ input, textarea {
           display: inline-block;
           border-radius: 3px;
         }
+
         a.zmiti-tag-1 {
           background: #666;
           color: #fff;
         }
+
         a.zmiti-tag-2 {
           background: #F16E50;
         }
+
         a.zmiti-tag-5 {
           background: #006633;
         }
+
         a:hover {
           background: #0099ff;
         }
+
       }
+
     }
+
   }
+
 }
