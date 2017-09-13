@@ -66,6 +66,7 @@ class ZmitiChartApp extends Component {
       PVinPC: 65892023, //pc端浏览量
       PVinMobile: 65699606, //移动端浏览量
       alexa: 57006,
+      alexaorder: 1, //0下降 1上升 
       pvList: [{
         name: 'H5用户量',
         pv: 33872,
@@ -215,7 +216,7 @@ class ZmitiChartApp extends Component {
                 <div className='zmiti-trend'>
                   <section>
                     <div className='title'>ALEXA</div>
-                    <div>{this.state.alexa} <span><img src='./assets/images/ar.png'/></span></div>
+                    <div>{this.state.alexa} <span><img src='./assets/images/ar.png' style={{marginTop:this.state.alexaorder===1?5:0,transform:'rotate('+(this.state.alexaorder===1?0:'180deg')+')'}}/></span></div>
                   </section>
                   <section>
                     <div>
@@ -508,6 +509,7 @@ class ZmitiChartApp extends Component {
         PVinCountry: data.list[0].pvincountry,
         PVoutCountry: data.list[0].pvoutcountry,
         PVinPC: data.list[0].pvinpc,
+        alexaorder: data.list[0].alexaorder,
         PVinMobile: data.list[0].pvinmobile
       })
     });
@@ -524,6 +526,7 @@ class ZmitiChartApp extends Component {
       msg = msg.replace(/&quot;/g, "\"");
 
 
+      console.log(msg)
       var data = JSON.parse(msg);
 
 
