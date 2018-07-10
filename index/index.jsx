@@ -30,8 +30,8 @@ class ZmitiIndexApp extends Component {
       currentWeekActiveCount: 2822114,
       currentMonthActiveCount: 24026969,
       allWaitingCount: 2815664, //中国好人榜右侧数据
-      candidateCount: 302, //总候选人数
-      takePartCount: 2700586, //参与人数
+      candidateCount: 298, //总候选人数
+      takePartCount: 2301022, //参与人数
       nicepersonList: [{
         title: '中国好医生好护士投票活动',
         person: 53519628,
@@ -45,10 +45,10 @@ class ZmitiIndexApp extends Component {
         person: 28443227,
         daterange: '2017/7/1--2017/7/31'
       }],
-      allPV: 139923564, //总浏览量
+      allPV: 347667907, //总浏览量
       pvList: [{
         name: '#好人365#总浏览量',
-        count: 1445968794,
+        count: 1790000000,
       }],
       tags: [{
         href: 'javascript:void(0)',
@@ -71,7 +71,41 @@ class ZmitiIndexApp extends Component {
       }, {
         href: 'javascript:void(0)',
         name: '习近平'
-      }]
+      }],
+      noticeList:[
+        {
+          type:"【专访】",
+          title:'全国助人为乐模范田华：心中有魂 脚下有根',
+          name:'党建',
+          date:'07-10'
+        }, {
+          type:"【微信】",
+          title: '策划《当你老了·爱情片》',
+          name: '王晓宁',
+          date: '07-10'
+        }, {
+          type:"【媒体暖新闻】",
+          title: '不要害怕抱紧我！消防员怀抱4岁女童脱险。',
+          name: '张殊凡',
+          date: '07-09'
+        }, {
+          type:"【专题】",
+          title: '我在博物馆等你之东莞博物馆。',
+          name: '杨学静',
+          date: '07-09'
+        }, {
+          type:"【推图】",
+          title: '社会主义核心价值观儿童画《为文明点赞》',
+          name: '项丽',
+          date: '07-09'
+        }, {
+          type:"【稿件】",
+          title: '(新时代巾帼志愿者故事)北京“暖心帮帮团”:心有大爱做小事',
+          name: '原茵',
+          date: '07-09'
+        }
+      ],
+      transY:0
 
     }
     this.viewW = document.documentElement.clientWidth;
@@ -107,56 +141,78 @@ class ZmitiIndexApp extends Component {
         <ZmitiCanvasApp {...data}></ZmitiCanvasApp>
         <aside>
           <div className='zmiti-active-C'>
-            <div className='zmiti-active-header-C' style={headerStyle}>
-                <header>活动</header>
-                <div className='zmiti-active-count'>
-                    <aside>
-                      {this.props.formatNumber(this.state.currentActiveCount)}
-                      <div>当前活动数</div>
-                    </aside>
-                    <aside>
-                      {this.props.formatNumber(this.state.currentWeekActiveCount)}
-                      <div>近一周</div>
-                    </aside>
-                    <aside>
-                      {this.props.formatNumber(this.state.currentMonthActiveCount)}
-                      <div>近一月</div>
-                    </aside>
-                </div>
-            </div>
-            <div className='zmiti-active-waiting-user' style={waitingStyle}>
-              <h1 style={{height:30}}></h1>
-              <div className='zmiti-active-title'>
-                <aside>
-                  <div>中国好人榜(9月)</div>
-                  <div>{this.state.daterange}</div>
-                </aside>
-                <aside>
-                     <div><img src='./assets/images/eye.png'/> <span>{this.props.formatNumber(this.state.allWaitingCount||0)}</span></div>
-                </aside>
+
+            <div className='zmiti-niceperson-list zmiti-active-header-C'>
+              <header>工作动态</header>
+              <div className='zmiti-notice-list' ref='wrap'>
+                <section ref='notice-list' style={{ WebkitTransform: 'translateY(' + this.state.transY + 'px)' }}>
+
+                  {this.state.noticeList.map((item, i) => {
+                    return <div key={i} className='zmiti-notice-item'>
+                        <span>{item.type}</span>
+                        <span className='zmiti-text-overflow'>{item.title}</span>
+                        <span>{item.name}</span>
+                        <span>{item.date}</span>
+                    </div>
+                  })}
+
+
+
+                </section>
+
               </div>
-              <div className='zmiti-active-takeuser'>
-                <div className='zmiti-active-slider'>
-                    <div className='zmiti-active-slider-bar'></div>
-                </div>
-                <div className='zmiti-active-waiting-user-count-C'>
-                  <aside>
-                    <span>候选人</span>
-                      <label>{this.props.formatNumber(this.state.candidateCount||0)}</label>
-                  </aside>
-                  <aside>
-                    <span>线索</span>
-                    <label>{this.props.formatNumber(this.state.takePartCount||0)}</label>
-                  </aside>
-                </div>
-              </div>
-            </div>
-            <div className='zmiti-niceperson-list'>
-              {
+              {false &&
                 this.state.nicepersonList.map((item, i) => {
                   return <ZmitiNicePersonApp iNow={i} {...item} daterange={item.daterange} key={i}></ZmitiNicePersonApp>
-               })}
+                })}
             </div>
+            <section>
+              <div className='zmiti-active-header-C' style={headerStyle}>
+                <header>活动</header>
+                <div className='zmiti-active-count'>
+                  <aside>
+                    {this.props.formatNumber(this.state.currentActiveCount)}
+                    <div>当前活动数</div>
+                  </aside>
+                  <aside>
+                    {this.props.formatNumber(this.state.currentWeekActiveCount)}
+                    <div>近一周</div>
+                  </aside>
+                  <aside>
+                    {this.props.formatNumber(this.state.currentMonthActiveCount)}
+                    <div>近一月</div>
+                  </aside>
+                </div>
+              </div>
+              <div className='zmiti-active-waiting-user' style={waitingStyle}>
+                <h1 style={{ height: 30 }}></h1>
+                <div className='zmiti-active-title'>
+                  <aside>
+                    <div>中国好人榜(7月)</div>
+                    <div>{this.state.daterange}</div>
+                  </aside>
+                  <aside>
+                    <div><img src='./assets/images/eye.png' /> <span>{this.props.formatNumber(this.state.allWaitingCount || 0)}</span></div>
+                  </aside>
+                </div>
+                <div className='zmiti-active-takeuser'>
+                  <div className='zmiti-active-slider'>
+                    <div className='zmiti-active-slider-bar'></div>
+                  </div>
+                  <div className='zmiti-active-waiting-user-count-C'>
+                    <aside>
+                      <span>候选人</span>
+                      <label>{this.props.formatNumber(this.state.candidateCount || 0)}</label>
+                    </aside>
+                    <aside>
+                      <span>线索</span>
+                      <label>{this.props.formatNumber(this.state.takePartCount || 0)}</label>
+                    </aside>
+                  </div>
+                </div>
+              </div>
+            </section>
+           
           </div>
         </aside>
         <aside>
@@ -934,6 +990,27 @@ class ZmitiIndexApp extends Component {
     this.getDateRange();
     this.initChart();
     this.tagMove()
+    this.noticeScroll();
+
+
+  }
+
+  noticeScroll(){
+    var height = this.refs['notice-list'].offsetHeight;
+    var wrapHeight = this.refs['wrap'].offsetHeight;
+    
+    /* setInterval(()=>{
+      if(this.state.transY<wrapHeight - height){
+        this.setState({
+          transY:0
+        })
+      }else{
+        this.setState({
+          transY:this.state.transY-1
+        })
+
+      }
+    },30) */
   }
 
   getDateRange() {

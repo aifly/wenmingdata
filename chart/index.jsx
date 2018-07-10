@@ -28,43 +28,44 @@ class ZmitiChartApp extends Component {
     this.state = {
 
       hotnews: [{
-        name: '中国好人榜”候选人点赞评议开始---中国文明网',
+        name: '2018年泉州市中小学“童心向党”歌咏活动_资讯中心',
         company: '中国文明网',
-        pv: 3926,
-        channel: '身边好人_频道',
+        pv: 1055,
+        channel: '要闻_红色文学',
         href: 'http://www.wenming.cn/sbhr_pd/tt/201707/t20170731_4363866.shtml'
       }, {
-        name: '湖北省第一届全国文明校园候选学校公示--中国文明网·湖北-湖北文明网',
+          name: '美丽中国呼唤全民行动——守护我们的蓝天绿水',
         company: '中国文明网',
-        pv: 11170,
-        channel: '公示公告',
+          pv: 322,
+          channel: '媒体评论',
         href: 'http://hub.wenming.cn/wmxx/gg/201708/t20170809_4376812.shtml'
       }, {
-        name: '头条 -贵州文明网',
+          name: ' 一次普通接警认了俩“妈妈” 从此结下了23年的不解情缘',
         company: '中国文明网',
-        pv: 3432,
-        channel: '头条',
+        pv: 177,
+          channel: '助人为乐',
         href: 'http://gz.wenming.cn/toutiao/201708/t20170810_4378168.shtml?from=timeline&isappinstalled=0'
       }, {
-        name: '中央文明办发布8月“中国好人榜”---中国文明网',
+          name: '“中国好人榜”2018年7月点赞评议开始 ',
         company: '中国文明网',
-        pv: 2959,
-        channel: '身边好人_频道',
+        pv: 141,
+          channel: '头条',
         href: 'http://www.wenming.cn/sbhr_pd/tt/201708/t20170831_4406952.shtml'
       }, {
-        name: '禁区勇士”胡洪炜：“国家选中我 就要干到底”---中国文明网',
-        company: '中国文明网',
-        pv: 2689,
-        channel: '专题库',
+          name: '切实推进乡村“五个振兴”---中国文明网',
+          company: ' 中国文明网',
+        pv: 128,
+          channel: '文明村镇_聚焦',
         href: 'http://www.wenming.cn/specials/sxdt/sixthmd/diliujie/jyfx2017/201708/t20170818_4390469.shtml'
       }],
+      currentType: 'site',//site 网站 channel：栏目
       allListCount: 0,
       allHRCount: 10740, //好人总数
       lastMonthRecordCount: 2702546, //上月推荐总数
-      PVinCountry: 139327001, //国内浏览量
-      PVoutCountry: 596563, //国外浏览量
-      PVinPC: 65892023, //pc端浏览量
-      PVinMobile: 65699606, //移动端浏览量
+      PVinCountry: 3440949, //国内浏览量
+      PVoutCountry: 225733, //国外浏览量
+      PVinPC: 19256325, //pc端浏览量
+      PVinMobile: 15410357, //移动端浏览量
       alexa: 57006,
       alexaorder: 1, //0下降 1上升 
       pvList: [{
@@ -76,14 +77,14 @@ class ZmitiChartApp extends Component {
         bgcolor: 'rgba(70,205,236,.1)',
       }, {
         name: '微博用户量',
-        pv: 468225,
+        pv: 492734,
         img: './assets/images/weibo.png',
         scale: .84,
         color: 'rgba(255,16,95,1)',
         bgcolor: 'rgba(255,16,95,.1)',
       }, {
         name: '微信用户量',
-        pv: 703414,
+        pv: 859928,
         img: './assets/images/weixin.png',
         scale: .77,
         color: 'rgba(119,229,89,1)',
@@ -97,39 +98,47 @@ class ZmitiChartApp extends Component {
         bgcolor: 'rgba(252,133,2,.1)',
       }],
       editorRankingList: [{
-        editor: '梁艳红',
-        count: 19989,
+        editor: '王小伟',
+        count: 270,
         scale: .381
       }, {
-        editor: '郑刚',
-        count: 14625,
+          editor: '张慧磊',
+        count: 168,
         scale: .28
       }, {
-        editor: '何霄',
-        count: 12521,
-        scale: .239
+          editor: '杨学静',
+        count: 168,
+        scale: .28
       }, {
-        editor: '张智萍',
-        count: 10080,
+          editor: '党 建',
+        count: 164,
         scale: .192
-      }],
+        }, {
+          editor: '项 丽',
+          count: 143,
+          scale: .192
+        }, {
+          editor: '贾玉韬',
+          count: 133,
+          scale: .192
+        }],
       seoList: [{
         name: '百度',
-        count: 5310193,
+        count: 6228254,
         height: 30,
       }, {
-        name: '谷歌',
-        count: 404000,
-        height: 50
-      }, {
         name: '360',
-        count: 3450000,
+          count: 1213290,
         height: 25
       }, {
         name: '搜狗',
-        count: 7988396,
+          count: 690884 ,
         height: 47
-      }]
+        }, {
+          name: '微软必应(Bing)',
+          count: 13581,
+          height: 47
+        }]
 
 
 
@@ -263,12 +272,14 @@ class ZmitiChartApp extends Component {
               </div>
               <div className='zmiti-chart2'>
                   <div className='zmiti-site-send'>
-                     <div className='title'>网站发稿量</div>
-                     <div className='zmiti-site' ref='zmiti-site'>11</div>
+                      <div onClick={this.toggleChSite.bind(this,'site')} className={'title ' +( this.state.currentType === 'site'?'active' : '')}>网站发稿量</div>
+                      <div onClick={this.toggleChSite.bind(this, 'channel')} className={'title title1 ' + (this.state.currentType === 'channel' ? 'active' : '')}>栏目发稿量</div>
+                      <div style={{opacity:this.state.currentType === 'site'?1:0}} className='zmiti-site' ref='zmiti-site'></div>
+                      <div style={{ opacity: this.state.currentType === 'channel' ? 1 : 0 }} className='zmiti-channel' ref='zmiti-channel'></div>
                   </div>
-                  <div className='zmiti-channel-send'>
+                  <div style={{ display: 'none' }} className='zmiti-channel-send'>
                     <div className='title'>栏目发稿量</div>
-                    <div className='zmiti-channel' ref='zmiti-channel'></div>
+
                   </div>
               </div>
           </aside>
@@ -367,7 +378,11 @@ class ZmitiChartApp extends Component {
   componentWillUnmount() {
     clearInterval(this.timer)
   }
-
+  toggleChSite(type){
+    this.setState({
+      currentType :type
+    })
+  }
 
   format(date) {
     var month = date.getMonth() + 1;
@@ -385,8 +400,15 @@ class ZmitiChartApp extends Component {
     clickCharts.setOption(this.clickConfig());
 
     var siteChart = echarts.init(this.refs['zmiti-site']);
+ 
 
     siteChart.setOption(this.siteConfig());
+
+    setInterval(()=>{
+        this.setState({
+          currentType:this.state.currentType === 'site'?'channel':'site'
+        })
+    },4000)
 
     var channelChart = echarts.init(this.refs['zmiti-channel'])
     channelChart.setOption(this.channelConfig());
@@ -815,7 +837,7 @@ class ZmitiChartApp extends Component {
         left: '3%',
         right: '0%',
         bottom: '5%',
-        width: 300,
+        width: '90%',
         containLabel: true
       },
 
@@ -904,7 +926,7 @@ class ZmitiChartApp extends Component {
           name: '点击量',
 
           type: 'line',
-          data: [560241, 551586, 546852, 782425, 798082, 600485, 798522],
+        data: [568132, 585389, 537758, 458491, 268698, 224358, 406266],
           markPoint: {
             data: [{
               type: 'max',
@@ -945,8 +967,8 @@ class ZmitiChartApp extends Component {
   siteConfig() {
 
     var data = [];
-    var arr = ['中国文明网', '时事报告', '党建网']
-    for (var i = 0; i < 3; i++) {
+    var arr = ['中国文明网', '云南文明网', '首都文明热线', '天津文明网', '安徽文明网', '湖南文明网', '广西文明网', '上海文明网','贵州文明网']
+    for (var i = 0; i < arr.length; i++) {
       data.push({
         value: arr[i],
         textStyle: {
@@ -1010,7 +1032,7 @@ class ZmitiChartApp extends Component {
         name: '发稿量',
         type: 'bar',
         barWidth: '60%',
-        data: [254, 55, 93]
+        data: [2986,773,709,402,325,304,293,278,236]
       }]
     };
 
@@ -1018,8 +1040,8 @@ class ZmitiChartApp extends Component {
 
   channelConfig() {
     var data = [];
-    var arr = ['身边好人', '好人365', '中宣党建']
-    for (var i = 0; i < 3; i++) {
+    var arr = ['地方联播', '文明评论', '专题库', '要闻', '理论', '价值观儿童画', '文明传播', '文明村镇', '文明之光','未成年人思想道德建设']
+    for (var i = 0; i < arr.length; i++) {
       data.push({
         value: arr[i],
         textStyle: {
@@ -1083,7 +1105,7 @@ class ZmitiChartApp extends Component {
         name: '发稿量',
         type: 'bar',
         barWidth: '60%',
-        data: [18, 12, 31]
+        data: [569,240,210,107,93,74,74,70,68,66]
       }]
     };
   }

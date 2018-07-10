@@ -51,7 +51,9 @@ $color1:#ffc600;
             @include pos(r);
             padding-left: 20px;
             font-weight: bold;
-            color: $color;
+            &.active{
+              color: $color;
+            }
 
             &:before {
               content: '';
@@ -60,7 +62,7 @@ $color1:#ffc600;
               height: 18px;
               background: $color1;
               left: 5px;
-              top: 2.1vh;
+              top: 1.8vh;
             }
           }
         }
@@ -335,7 +337,7 @@ $color1:#ffc600;
           height: 1px;
           left: 0;
           top: 50px;
-          @include borderShadow();
+          //@include borderShadow();
         }
         &:after {
           width: 1px;
@@ -348,10 +350,23 @@ $color1:#ffc600;
           -webkit-flex: 1;
           @include pos(r);
           color: #e4e4e4;
+                    
+          .zmiti-site,.zmiti-channel{
+            margin-top: -55px;
+            height: 100%;
+            width: 100%;
+            @include pos(a);
+          }
+          
 
           .title {
             height: 50px;
             line-height: 50px;
+            cursor: pointer;
+            z-index: 10;
+          }
+          .title1{
+            margin-left: 120px;
           }
           &>div:nth-of-type(2) {
             width: 100%;
