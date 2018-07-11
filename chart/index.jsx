@@ -61,7 +61,7 @@ class ZmitiChartApp extends Component {
       currentType: 'site',//site 网站 channel：栏目
       allListCount: 0,
       allHRCount: 10740, //好人总数
-      lastMonthRecordCount: 2702546, //上月推荐总数
+      lastMonthRecordCount: 2301022, //上月推荐总数
       PVinCountry: 3440949, //国内浏览量
       PVoutCountry: 225733, //国外浏览量
       PVinPC: 19256325, //pc端浏览量
@@ -91,7 +91,7 @@ class ZmitiChartApp extends Component {
         bgcolor: 'rgba(119,229,89,.1)',
       }, {
         name: 'APP装机量',
-        pv: 1205694,
+        pv: 1600000,
         img: './assets/images/app.png',
         scale: .66,
         color: 'rgba(252,133,2,1)',
@@ -1040,7 +1040,7 @@ class ZmitiChartApp extends Component {
 
   channelConfig() {
     var data = [];
-    var arr = ['地方联播', '文明评论', '专题库', '要闻', '理论', '价值观儿童画', '文明传播', '文明村镇', '文明之光','未成年人思想道德建设']
+    var arr = ['地方联播', '文明评论', '专题库', '要闻', '理论', '价值观儿童画', '文明传播', '文明村镇']
     for (var i = 0; i < arr.length; i++) {
       data.push({
         value: arr[i],
@@ -1105,7 +1105,7 @@ class ZmitiChartApp extends Component {
         name: '发稿量',
         type: 'bar',
         barWidth: '60%',
-        data: [569,240,210,107,93,74,74,70,68,66]
+        data: [569,240,210,107,93,74,74,70]
       }]
     };
   }
