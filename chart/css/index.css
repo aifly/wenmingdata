@@ -32,6 +32,42 @@
   height: 100px;
 }
 
+.zmiti-chart-main-ui .zmiti-char-date {
+  position: absolute;
+  z-index: 10;
+  right: 20px;
+  top: 20px;
+  height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+  color: #fff;
+}
+
+.zmiti-chart-main-ui .zmiti-char-date span {
+  margin: 0 10px;
+}
+
+.zmiti-chart-main-ui .zmiti-char-date > section {
+  -webkit-animation: move 6s infinite;
+  animation: move 6s infinite;
+}
+
+@-webkit-keyframes move {
+  50%, 60% {
+    -webkit-transform: translate(0, -30px);
+    transform: translate(0, -30px);
+  }
+  80%, 90%, 100% {
+    -webkit-transform: translate(0, -60px);
+    transform: translate(0, -60px);
+  }
+}
+
+.zmiti-chart-main-ui .zmiti-char-date > section > div:nth-of-type(2) span {
+  color: #00fff2;
+  margin: 0 5px;
+}
+
 .zmiti-chart-container {
   display: flex;
   display: -webkit-flex;
@@ -582,14 +618,15 @@
   display: flex;
   display: -webkit-flex;
   flex-flow: row;
-  line-height: 28px;
-  height: 28px;
-  font-size: 12px;
+  line-height: 34px;
+  height: 34px;
+  font-size: 14px;
   text-align: center;
 }
 
 .zmiti-chart-container > aside:nth-of-type(2) .zmiti-news-C .zmiti-new-ranking .zmiti-hotnews-list ul li:nth-of-type(1) {
-  font-size: 14px;
+  font-size: 16px;
+  margin-top: 10px;
 }
 
 .zmiti-chart-container > aside:nth-of-type(2) .zmiti-news-C .zmiti-new-ranking .zmiti-hotnews-list ul li:nth-of-type(1) div:nth-of-type(2) {
@@ -658,7 +695,7 @@
 
 .zmiti-chart-container > aside:nth-of-type(2) .zmiti-seo .zmiti-seo-info .zmiti-include-count {
   position: absolute;
-  top: -25px;
+  top: 0;
   left: 0;
   color: #00fff2;
   -webkit-transform: translate3d(-40%, 0, 0);
@@ -706,7 +743,7 @@
   height: 14px;
   border-radius: 20px;
   left: 4px;
-  top: 4px;
+  top: 34px;
   position: absolute;
   background: #3bd2c1;
 }

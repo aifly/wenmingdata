@@ -19,6 +19,10 @@ import ZmitiPvchartApp from '../components/pvchart/index.jsx'
 
 
 import ZmitiRankingApp from '../components/ranking/index.jsx'
+import {
+  GetDateString,
+  GetcDateString
+} from './calendar';
 
 class ZmitiChartApp extends Component {
   constructor(props) {
@@ -91,7 +95,7 @@ class ZmitiChartApp extends Component {
         bgcolor: 'rgba(119,229,89,.1)',
       }, {
         name: 'APP装机量',
-        pv: 1600000,
+        pv: 1605682,
         img: './assets/images/app.png',
         scale: .66,
         color: 'rgba(252,133,2,1)',
@@ -219,6 +223,24 @@ class ZmitiChartApp extends Component {
       <div className='zmiti-chart-main-ui'>
         <ZmitiCanvasApp {...data}></ZmitiCanvasApp>
         <h2></h2>
+        <div className='zmiti-char-date'>
+          <section>
+            <div>
+              <span>{GetDateString()}</span>
+              <span>{GetcDateString()}</span>
+            </div>
+            <div>
+              <span>今日总值班：</span><label>{window.leader1}</label>
+              <span>带班：</span><label>{window.leader2}</label>
+              <span>值班：</span><label>{window.leader3}</label>
+            </div>
+            <div>
+              <span>{GetDateString()}</span>
+              <span>{GetcDateString()}</span>
+            </div>
+          </section>
+
+        </div>
         <section className='zmiti-chart-container' >
           <aside>
               <div className='zmiti-chart1'>
@@ -445,7 +467,7 @@ class ZmitiChartApp extends Component {
       var x = width * (i * 2 + 1) / 8 - 10;
       domElement.x = x;
       domElement.y = seo.height;
-      shape[i === 0 ? 'moveTo' : 'lineTo'](width * (i * 2 + 1) / 8, seo.height + 10);
+      shape[i === 0 ? 'moveTo' : 'lineTo'](width * (i * 2 + 1) / 8, seo.height + 40);
       var container = $(dom);
 
       var text = new createjs.Text(seo.name, '10px Arial', '#e4e4e4');
@@ -474,7 +496,7 @@ class ZmitiChartApp extends Component {
 
     function Halo(obj, left, top) {
       var left = 10;
-      var top = 10;
+      var top = 40;
       containers.forEach((obj, i) => {
         obj.append('<div class="dot" style="top:' + top + 'px;left:' + left + 'px;"></div>')
         setTimeout(function() {
@@ -768,7 +790,7 @@ class ZmitiChartApp extends Component {
         show: false,
         orient: 'vertical',
         left: 'left',
-        data: ['四个一百', '好人榜8月', '好医生好护士', '好人榜7月', '好人榜6月']
+        data: ['中国好人榜2月', '中国好人榜3月', '中国好人榜4月', '中国好人榜5月', '中国好人榜6月']
       },
       series: [{
         name: '参与人数',
@@ -776,20 +798,20 @@ class ZmitiChartApp extends Component {
         radius: '55%',
         center: ['50%', '60%'],
         data: [{
-          value: 71103519,
-          name: '四个一百'
+          value: 4917872,
+          name: '中国好人榜2月'
         }, {
-          value: 18389191,
-          name: '好人榜8月'
+            value: 5716137,
+            name: '中国好人榜3月'
         }, {
-          value: 53519628,
-          name: '好医生好护士'
+            value: 9079963,
+            name: '中国好人榜4月'
         }, {
-          value: 28443227,
-          name: '好人榜7月'
+            value: 7766216,
+            name: '中国好人榜5月'
         }, {
-          value: 22508727,
-          name: '好人榜6月'
+            value: 5671160,
+            name: '中国好人榜6月'
         }],
         itemStyle: {
           emphasis: {
