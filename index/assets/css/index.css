@@ -365,6 +365,31 @@ input, textarea {
   overflow: hidden;
 }
 
+.zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-niceperson-list > header::before {
+  display: none;
+}
+
+.zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-niceperson-list > header span {
+  margin-right: 30px;
+  position: relative;
+  cursor: pointer;
+  color: #fff;
+}
+
+.zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-niceperson-list > header span.active {
+  color: #00fff2;
+}
+
+.zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-niceperson-list > header span:before {
+  content: '';
+  position: absolute;
+  left: -14px;
+  width: 4px;
+  background: #faf170;
+  height: 1.4vw;
+  top: .1vw;
+}
+
 .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-niceperson-list .zmiti-notice-item {
   line-height: 40px;
   display: flex;
@@ -388,6 +413,16 @@ input, textarea {
 
 .zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-niceperson-list .zmiti-notice-item span:nth-of-type(3) {
   width: 80px;
+}
+
+.zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-site-error-item {
+  margin: 20px 0;
+}
+
+.zmiti-page1-main-ui > aside:nth-of-type(1) .zmiti-site-error-item div {
+  line-height: 24px;
+  font-size: 14px;
+  text-indent: 2em;
 }
 
 .zmiti-page1-main-ui > aside:nth-of-type(2) {

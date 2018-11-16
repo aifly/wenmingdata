@@ -26,12 +26,14 @@ class ZmitiIndexApp extends Component {
 
 
     this.state = {
+      isSiteError:false,//网站纠结 or 工作动态 
       currentActiveCount: 2,
       currentWeekActiveCount: 2822114,
       currentMonthActiveCount: 24026969,
       allWaitingCount: 2815664, //中国好人榜右侧数据
       candidateCount: 298, //总候选人数
       takePartCount: 2301022, //参与人数
+      setHover:false,
       nicepersonList: [{
         title: '中国好医生好护士投票活动',
         person: 53519628,
@@ -72,6 +74,19 @@ class ZmitiIndexApp extends Component {
         href: 'javascript:void(0)',
         name: '习近平'
       }],
+      siteErrorList:[
+         {
+          content:"“情义老兵”李彬：战友尽忠我尽孝---中国文明网。“我也经常前往机关军营、校园社区等各地宣讲。”应改为“我也经常前往各地的机关、军营、校园、社区等宣讲。”",
+          date:'（11/16）'
+        },
+        {
+          content:"邱宏涛：格桑花开唐古拉---中国文明网。  “在他们小小的心里，也不知道能听进去多少、理解多少。”改为“在他们小小年纪，也不知道能听进去多少、理解多少。”更妥。",
+          date:'（11/16）'
+        },{
+          content:"公号学雷锋歌曲征集建议1）活动时间由“即日”改具体时间，加上年份；2）编语排版，“中央广播电视总台”最好另起一行，否则不同尺寸手机界面不确定甩几个字到下一行。",
+          date:'（11/16）'
+        }
+      ],
       noticeList:[
         {
           type:"【专访】",
@@ -105,8 +120,8 @@ class ZmitiIndexApp extends Component {
           date: '07-09'
         }
       ],
-      transY:0
-
+      transY:0,
+      errorTransY:0
     }
     this.viewW = document.documentElement.clientWidth;
     this.viewH = document.documentElement.clientHeight;
@@ -136,40 +151,45 @@ class ZmitiIndexApp extends Component {
     var allPVStyl = {
       background: 'url(./assets/images/pv-bg.png) no-repeat left top / contain'
     }
-    return (
-      <div className='zmiti-page1-main-ui'>
-        <ZmitiCanvasApp {...data}></ZmitiCanvasApp>
+    return <div className="zmiti-page1-main-ui">
+        <ZmitiCanvasApp {...data} />
         <aside>
-          <div className='zmiti-active-C'>
-
-            <div className='zmiti-niceperson-list zmiti-active-header-C'>
-              <header>工作动态</header>
-              <div className='zmiti-notice-list' ref='wrap'>
-                <section ref='notice-list' style={{ WebkitTransform: 'translateY(' + this.state.transY + 'px)' }}>
-
+          <div className="zmiti-active-C">
+            <div className="zmiti-niceperson-list zmiti-active-header-C">
+              <header onMouseOver={this.setSiteError.bind(this,true)}  onMouseOut={this.setSiteError.bind(this,false)}>
+                <span onClick={this.changeSiteOrWork.bind(this,false)} className={this.state.isSiteError? '':'active'}>工作动态</span>
+                <span  onClick={this.changeSiteOrWork.bind(this,true)}  className={this.state.isSiteError? 'active':''}>质量监督</span>
+              </header>
+              <div className="zmiti-notice-list" ref="wrap">
+               {<section ref="notice-list" style={{ WebkitTransform: "translateY(" + this.state.transY + "px)",display:!this.state.isSiteError?'block':'none' }}>
                   {this.state.noticeList.map((item, i) => {
-                    return <div key={i} className='zmiti-notice-item'>
+                    return <div key={i} className="zmiti-notice-item">
                         <span>{item.type}</span>
-                        <span className='zmiti-text-overflow'>{item.title}</span>
+                        <span className="zmiti-text-overflow">
+                          {item.title}
+                        </span>
                         <span>{item.name}</span>
                         <span>{item.date}</span>
-                    </div>
+                      </div>;
                   })}
-
-
-
-                </section>
-
+                </section>}
+                <div className='zmiti-site-error' onMouseOver={this.errorListHover.bind(this,true)} onMouseOut={this.errorListHover.bind(this,false)} ref='error-list' style={{display: this.state.isSiteError?'block':'none',WebkitTransform:"translate3d(0,"+-this.state.errorTransY+"px,0)",transform:"translate3d(0,"+-this.state.errorTransY+"px,0)"}}>
+                      {this.state.siteErrorList.map((item, i) => {
+                        return <div key={i} className="zmiti-site-error-item">
+                            <div>{item.content}</div>
+                            <div style={{textAlign:'right'}}>{item.date}</div>
+                          </div>
+                      })}
+                  </div>
               </div>
-              {false &&
-                this.state.nicepersonList.map((item, i) => {
-                  return <ZmitiNicePersonApp iNow={i} {...item} daterange={item.daterange} key={i}></ZmitiNicePersonApp>
+              {false && this.state.nicepersonList.map((item, i) => {
+                  return <ZmitiNicePersonApp iNow={i} {...item} daterange={item.daterange} key={i} />;
                 })}
             </div>
             <section>
-              <div className='zmiti-active-header-C' style={headerStyle}>
+              <div className="zmiti-active-header-C" style={headerStyle}>
                 <header>活动</header>
-                <div className='zmiti-active-count'>
+                <div className="zmiti-active-count">
                   <aside>
                     {this.props.formatNumber(this.state.currentActiveCount)}
                     <div>当前活动数</div>
@@ -184,76 +204,98 @@ class ZmitiIndexApp extends Component {
                   </aside>
                 </div>
               </div>
-              <div className='zmiti-active-waiting-user' style={waitingStyle}>
-                <h1 style={{ height: 30 }}></h1>
-                <div className='zmiti-active-title'>
+              <div className="zmiti-active-waiting-user" style={waitingStyle}>
+                <h1 style={{ height: 30 }} />
+                <div className="zmiti-active-title">
                   <aside>
                     <div>中国好人榜(7月)</div>
                     <div>{this.state.daterange}</div>
                   </aside>
                   <aside>
-                    <div><img src='./assets/images/eye.png' /> <span>{this.props.formatNumber(this.state.allWaitingCount || 0)}</span></div>
+                    <div>
+                      <img src="./assets/images/eye.png" /> <span>
+                        {this.props.formatNumber(
+                          this.state.allWaitingCount || 0
+                        )}
+                      </span>
+                    </div>
                   </aside>
                 </div>
-                <div className='zmiti-active-takeuser'>
-                  <div className='zmiti-active-slider'>
-                    <div className='zmiti-active-slider-bar'></div>
+                <div className="zmiti-active-takeuser">
+                  <div className="zmiti-active-slider">
+                    <div className="zmiti-active-slider-bar" />
                   </div>
-                  <div className='zmiti-active-waiting-user-count-C'>
+                  <div className="zmiti-active-waiting-user-count-C">
                     <aside>
                       <span>候选人</span>
-                      <label>{this.props.formatNumber(this.state.candidateCount || 0)}</label>
+                      <label>
+                        {this.props.formatNumber(
+                          this.state.candidateCount || 0
+                        )}
+                      </label>
                     </aside>
                     <aside>
                       <span>线索</span>
-                      <label>{this.props.formatNumber(this.state.takePartCount || 0)}</label>
+                      <label>
+                        {this.props.formatNumber(
+                          this.state.takePartCount || 0
+                        )}
+                      </label>
                     </aside>
                   </div>
                 </div>
               </div>
             </section>
-           
           </div>
         </aside>
         <aside>
           <div>
-            <div className='zmiti-map' ref='map'></div>
-             <div className='zmiti-pv-C'>
-                <div className='zmiti-all-pv' style={allPVStyl}>
-                    <label>网站总浏览量</label>
-                    {
-                      this.props.formatNumber(this.state.allPV || 0).split('').map((item, i) => {
-                        return <span key={i}>{item}</span>
-                      })
-                    }
-                </div>
-                <ul className='zmiti-pv-list'>
-                  {this.state.pvList.map((list,i)=>{
-                    return <li key={i}>
-                        <aside>{list.name}</aside>
-                        <aside>{this.props.formatNumber(list.count||0)}</aside>
-                    </li>
+            <div className="zmiti-map" ref="map" />
+            <div className="zmiti-pv-C">
+              <div className="zmiti-all-pv" style={allPVStyl}>
+                <label>网站总浏览量</label>
+                {this.props
+                  .formatNumber(this.state.allPV || 0)
+                  .split("")
+                  .map((item, i) => {
+                    return <span key={i}>{item}</span>;
                   })}
-                </ul>
+              </div>
+              <ul className="zmiti-pv-list">
+                {this.state.pvList.map((list, i) => {
+                  return <li key={i}>
+                      <aside>{list.name}</aside>
+                      <aside>
+                        {this.props.formatNumber(list.count || 0)}
+                      </aside>
+                    </li>;
+                })}
+              </ul>
             </div>
 
-            <div className='zmiti-tag' ref='tag'>
-
-                {this.state.tags.map((tag,i)=>{
-                  return <a key={i} className={'zmiti-tag-'+(i+1)} href={tag.href}>{tag.name}</a>
-                })}
-
+            <div className="zmiti-tag" ref="tag">
+              {this.state.tags.map((tag, i) => {
+                return <a key={i} className={"zmiti-tag-" + (i + 1)} href={tag.href}>
+                    {tag.name}
+                  </a>;
+              })}
             </div>
           </div>
         </aside>
-      </div>
-    );
+      </div>;
   }
 
   createMarkup() {
     return {
       __html: this.state.notice
     };
+  }
+
+
+  setSiteError(flag){
+      this.setState({
+        setHover:flag
+      })
   }
 
 
@@ -325,7 +367,7 @@ class ZmitiIndexApp extends Component {
         symbol: '',
         data: s.convertData(userData),
         symbolSize: function(val) {
-          return val[2] / 50; //100
+          return val[2] / 20; //100
         },
         label: {
           normal: {
@@ -400,7 +442,7 @@ class ZmitiIndexApp extends Component {
 
       {
         name: "许昌市",
-        value: 282
+        value: 382
       },
 
       {
@@ -505,7 +547,7 @@ class ZmitiIndexApp extends Component {
 
       {
         name: "成都市",
-        value: 64
+        value: 624
       },
 
       {
@@ -525,7 +567,7 @@ class ZmitiIndexApp extends Component {
 
       {
         name: "上海市",
-        value: 54
+        value: 454
       },
 
       {
@@ -535,12 +577,11 @@ class ZmitiIndexApp extends Component {
 
       {
         name: "乌鲁木齐市",
-        value: 53
+        value: 253
       },
-
       {
         name: "南京市",
-        value: 50
+        value: 502
       },
 
       {
@@ -555,7 +596,7 @@ class ZmitiIndexApp extends Component {
 
       {
         name: "太原市",
-        value: 42
+        value: 242
       },
 
       {
@@ -570,7 +611,7 @@ class ZmitiIndexApp extends Component {
 
       {
         name: "昆明市",
-        value: 40
+        value: 401
       },
 
       {
@@ -780,7 +821,7 @@ class ZmitiIndexApp extends Component {
 
       {
         name: "昌平区",
-        value: 2
+        value: 122
       },
 
       {
@@ -805,7 +846,7 @@ class ZmitiIndexApp extends Component {
 
       {
         name: "恩施土家族苗族自治州",
-        value: 1
+        value: 123
       },
 
       {
@@ -825,7 +866,7 @@ class ZmitiIndexApp extends Component {
 
       {
         name: "无锡市",
-        value: 1
+        value: 124
       },
 
       {
@@ -992,7 +1033,42 @@ class ZmitiIndexApp extends Component {
     this.tagMove()
     this.noticeScroll();
 
+    setInterval(()=>{
+      if(!this.setHover){
+        this.changeSiteOrWork(!this.state.isSiteError);
+      }
+    },4000)
+    
 
+  }
+
+  errorListHover(flag){
+    this.isStop = flag
+  }
+
+  errorListStart(){
+    if(this.timer){
+      return;
+    }
+    setTimeout(() => {
+      var h = this.refs["error-list"].offsetHeight;
+      var wrapHeight = this.refs["wrap"].offsetHeight;
+      this.timer = setInterval(() => {
+        if (h && !this.isStop) {
+          if (this.state.errorTransY > h - wrapHeight) {
+            this.setState({ errorTransY: 0 });
+          }
+          this.setState({ errorTransY: this.state.errorTransY + 1 });
+        }
+      }, 30);
+    }, 400);
+  }
+
+  errorListEnd(){
+    if(this.timer){
+      clearInterval(this.timer);
+      this.timer = null;
+    }
   }
 
   noticeScroll(){
@@ -1021,6 +1097,18 @@ class ZmitiIndexApp extends Component {
     this.setState({
       daterange: [year, 9, 1].join('/') + "--" // + [year, 8, 31].join('/')
     })
+  }
+
+  changeSiteOrWork(isSiteError){
+     this.setState({
+       isSiteError
+     });
+     if(isSiteError){
+        this.errorListStart();
+       
+     }else{
+         this.errorListEnd();
+     }
   }
 
   tagMove() {

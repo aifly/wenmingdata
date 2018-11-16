@@ -72,6 +72,7 @@ class ZmitiChartApp extends Component {
       PVinMobile: 15410357, //移动端浏览量
       alexa: 57006,
       alexaorder: 1, //0下降 1上升 
+      isHover:false,
       pvList: [{
         name: 'H5用户量',
         pv: 33872,
@@ -293,7 +294,7 @@ class ZmitiChartApp extends Component {
                 </div>
               </div>
               <div className='zmiti-chart2'>
-                  <div className='zmiti-site-send'>
+                  <div className='zmiti-site-send' onMouseOver={this.setHover.bind(this,true)} onMouseOut={this.setHover.bind(this,false)}>
                       <div onClick={this.toggleChSite.bind(this,'site')} className={'title ' +( this.state.currentType === 'site'?'active' : '')}>网站发稿量</div>
                       <div onClick={this.toggleChSite.bind(this, 'channel')} className={'title title1 ' + (this.state.currentType === 'channel' ? 'active' : '')}>栏目发稿量</div>
                       <div style={{opacity:this.state.currentType === 'site'?1:0}} className='zmiti-site' ref='zmiti-site'></div>
@@ -406,6 +407,11 @@ class ZmitiChartApp extends Component {
     })
   }
 
+  setHover(flag){
+    this.setState({
+      isHover:flag
+    })
+  }
   format(date) {
     var month = date.getMonth() + 1;
     month < 10 && (month = '0' + month);
@@ -427,9 +433,11 @@ class ZmitiChartApp extends Component {
     siteChart.setOption(this.siteConfig());
 
     setInterval(()=>{
-        this.setState({
-          currentType:this.state.currentType === 'site'?'channel':'site'
-        })
+        if(!this.state.isHover){
+          this.setState({
+            currentType:this.state.currentType === 'site'?'channel':'site'
+          })
+        }
     },4000)
 
     var channelChart = echarts.init(this.refs['zmiti-channel'])

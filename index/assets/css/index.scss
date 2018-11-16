@@ -356,6 +356,32 @@ input, textarea {
            height: 80%;
            overflow: hidden;
         }
+        &>header{
+          &::before{
+            display:none;
+          }
+          span{
+            margin-right: 30px;
+            @include pos(r);
+            cursor: pointer;
+
+            color:#fff;
+            
+            &.active{
+              color:#00fff2;
+            }
+
+             &:before {
+               content: '';
+               @include pos(a);
+               left: -14px;
+               width: 4px;
+               background: #faf170;
+               height: 1.4vw;
+               top: .1vw;
+             }
+          }
+        }
         .zmiti-notice-item{
           line-height: 40px;
           @include displayFlex(row);
@@ -376,6 +402,19 @@ input, textarea {
             }
           }
 
+        }
+      }
+
+      .zmiti-site-error{
+        
+      }
+      
+      .zmiti-site-error-item{
+        margin: 20px 0;
+        div{
+          line-height: 24px;
+          font-size:14px;
+          text-indent: 2em;
         }
       }
 
